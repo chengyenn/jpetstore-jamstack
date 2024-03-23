@@ -88,6 +88,7 @@ a:link {
 
   text-decoration: none;
   font-family: helvetica, tahoma, arial, verdana, sans-serif;
+  margin: 0 5px;
 }
 
 a:hover {
@@ -187,12 +188,14 @@ body > #Search {
   height: 9ex;
 }
 
-#Search input {
+#Search input,
+button {
   border-width: 0.1ex 0.1ex 0.1ex 0.1ex;
   border-style: solid;
   border-color: #aaa;
   background-color: #666;
   color: #eaac00;
+  margin: 0 5px 0 0;
 }
 
 #QuickLinks {
@@ -340,7 +343,7 @@ body > #Banner {
   color: #ffa500;
 }
 
-.messages .success {
+Header .messages .success {
   color: #008000;
 }
 
