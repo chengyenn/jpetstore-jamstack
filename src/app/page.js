@@ -8,7 +8,7 @@ export default function Home() {
         Welcome to JPetStore Demo Application on MyBatis + Spring Boot + Spring
         Security + Thymeleaf
       </h2>
-      <Content href="">Enter the Store</Content>
+      <Content href="/catalog">Enter the Store</Content>
       <Content
         href="https://github.com/kazuki43zoo/mybatis-spring-boot-jpetstore"
         target="source"

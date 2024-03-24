@@ -40,7 +40,7 @@ export default function CommonLayout() {
 }
 
 // Header
-function Header() {
+export function Header() {
   return (
     <div id="Header">
       <Logo />
@@ -55,7 +55,7 @@ function Logo() {
   return (
     <div id="Logo">
       <div id="LogoContent">
-        <a href="">
+        <a href="/catalog">
           <img src="/images/logo-topbar.gif" alt="logo" />
         </a>
       </div>
@@ -121,11 +121,11 @@ function QuickLinkList({ categotyObj, children }) {
 }
 
 // Content
-function Content() {
+export function Content({ children }) {
   return (
     <div id="Content">
       {/* <Message /> */}
-      <Section />
+      <Section>{children}</Section>
     </div>
   );
 }
@@ -145,7 +145,7 @@ function Section({ children }) {
 }
 
 // Footer
-function Footer() {
+export function Footer() {
   return (
     <div id="Footer">
       <PowerBy />

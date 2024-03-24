@@ -277,6 +277,10 @@ body > #Banner {
   width: 30%;
 }
 
+#Sidebar a {
+  margin: 0;
+}
+
 #MainImage {
   float: left;
   background: inherit;
