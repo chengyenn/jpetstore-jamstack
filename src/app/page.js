@@ -1,6 +1,5 @@
 // 負責定義 route segment 的 UI，可以想像成首頁內容
 // import styles from "./page.module.css";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -25,9 +24,9 @@ export default function Home() {
 function Content({ href, target, children }) {
   return (
     <p>
-      <Link href={href} target={target}>
+      <a href={href} target={target}>
         {children}
-      </Link>
+      </a>
     </p>
   );
 }

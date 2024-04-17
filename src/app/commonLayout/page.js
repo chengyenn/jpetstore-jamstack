@@ -55,9 +55,9 @@ function Logo() {
   return (
     <div id="Logo">
       <div id="LogoContent">
-        <Link href="/catalog">
+        <a href="/catalog">
           <img src="/images/logo-topbar.gif" alt="logo" />
-        </Link>
+        </a>
       </div>
     </div>
   );
@@ -67,18 +67,18 @@ function Menu() {
   return (
     <div id="Menu">
       <div id="MenuContent">
-        <Link href="">
+        <a href="">
           <img src="/images/cart.gif" alt="img_car" align="middle" />
-        </Link>
+        </a>
         <img src="/images/separator.gif" align="middle" />
-        <Link href="">Sign In</Link>
+        <a href="">Sign In</a>
         {/* <a href="">Sign Out</a> */}
         {/* <img src="/images/separator.gif" align="middle" />
         <a href="">My Account</a> */}
         <img src="/images/separator.gif" align="middle" />
-        <Link href="/help" target="help">
+        <a href="/help" target="help">
           ?
-        </Link>
+        </a>
       </div>
     </div>
   );
@@ -112,9 +112,9 @@ function QuickLink() {
 function QuickLinkList({ categotyObj, children }) {
   return (
     <>
-      <Link href={categotyObj.productLink}>
+      <a href={categotyObj.productLink}>
         <img src={categotyObj.image} />
-      </Link>
+      </a>
       {children}
     </>
   );
@@ -157,9 +157,9 @@ export function Footer() {
 function PowerBy() {
   return (
     <div id="PoweredBy">
-      <Link href="http://kazuki43zoo.com" target="homepage">
+      <a href="http://kazuki43zoo.com" target="homepage">
         kazuki43zoo.com
-      </Link>
+      </a>
     </div>
   );
 }
