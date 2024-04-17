@@ -1,6 +1,5 @@
 import CommonLayout, { Header, Content, Footer } from "../commonLayout/page";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Catalog() {
   return (
@@ -64,9 +63,9 @@ function SideBar() {
 function SideBarList({ href, src, children }) {
   return (
     <div>
-      <Link href={href}>
+      <a href={href}>
         <img src={src} />
-      </Link>
+      </a>
       <br />
       {children}
       <br />
