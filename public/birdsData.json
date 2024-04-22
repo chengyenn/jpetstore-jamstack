@@ -1,0 +1,38 @@
+[
+  {
+    "productid": "AV-CB-01",
+    "category": "BIRDS",
+    "name": "Amazon Parrot",
+    "imgUrl": "<image src=\"/images/bird2.gif\">Great companion for up to 75 years",
+    "items": [
+      {
+        "itemid": "EST-18",
+        "productid": "AV-CB-01",
+        "listprice": 193.5,
+        "unitcost": 92.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "Adult Male",
+        "qty": 10000
+      }
+    ]
+  },
+  {
+    "productid": "AV-SB-02",
+    "category": "BIRDS",
+    "name": "Finch",
+    "imgUrl": "<image src=\"/images/bird1.gif\">Great stress reliever",
+    "items": [
+      {
+        "itemid": "EST-19",
+        "productid": "AV-SB-02",
+        "listprice": 15.5,
+        "unitcost": 2.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "Adult Male",
+        "qty": 10000
+      }
+    ]
+  }
+]
