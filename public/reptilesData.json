@@ -1,5 +1,23 @@
 [
   {
+    "productid": "RP-LI-02",
+    "category": "REPTILES",
+    "name": "Iguana",
+    "imgUrl": "<image src=\"/images/lizard1.gif\">Friendly green friend",
+    "items": [
+      {
+        "itemid": "EST-11",
+        "productid": "RP-SN-01",
+        "listprice": 18.5,
+        "unitcost": 12.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "Venomless",
+        "qty": 10000
+      }
+    ]
+  },
+  {
     "productid": "RP-SN-01",
     "category": "REPTILES",
     "name": "Rattlesnake",
@@ -23,24 +41,6 @@
         "supplier": 1,
         "status": "P",
         "attr1": "Rattleless",
-        "qty": 10000
-      }
-    ]
-  },
-  {
-    "productid": "RP-LI-02",
-    "category": "REPTILES",
-    "name": "Iguana",
-    "imgUrl": "<image src=\"/images/lizard1.gif\">Friendly green friend",
-    "items": [
-      {
-        "itemid": "EST-11",
-        "productid": "RP-SN-01",
-        "listprice": 18.5,
-        "unitcost": 12.0,
-        "supplier": 1,
-        "status": "P",
-        "attr1": "Venomless",
         "qty": 10000
       }
     ]

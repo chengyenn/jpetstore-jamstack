@@ -1,51 +1,5 @@
 [
   {
-    "productid": "FI-SW-01",
-    "category": "FISH",
-    "name": "Angelfish",
-    "imgUrl": "<image src=\"/images/fish1.gif\">Salt Water fish from Australia",
-    "items": [
-      {
-        "itemid": "EST-1",
-        "productid": "FI-SW-01",
-        "listprice": 16.5,
-        "unitcost": 10.0,
-        "supplier": 1,
-        "status": "P",
-        "attr1": "Large",
-        "qty": 10000
-      },
-      {
-        "itemid": "EST-2",
-        "productid": "FI-SW-01",
-        "listprice": 16.5,
-        "unitcost": 10.0,
-        "supplier": 1,
-        "status": "P",
-        "attr1": "Small",
-        "qty": 10000
-      }
-    ]
-  },
-  {
-    "productid": "FI-SW-02",
-    "category": "FISH",
-    "name": "Tiger Shark",
-    "imgUrl": "<image src=\"/images/fish4.gif\">Salt Water fish from Australia",
-    "items": [
-      {
-        "itemid": "EST-3",
-        "productid": "FI-SW-02",
-        "listprice": 18.5,
-        "unitcost": 12.0,
-        "supplier": 1,
-        "status": "P",
-        "attr1": "Toothless",
-        "qty": 10000
-      }
-    ]
-  },
-  {
     "productid": "FI-FW-01",
     "category": "FISH",
     "name": "Koi",
@@ -97,6 +51,52 @@
         "supplier": 1,
         "status": "P",
         "attr1": "Adult Female",
+        "qty": 10000
+      }
+    ]
+  },
+  {
+    "productid": "FI-SW-01",
+    "category": "FISH",
+    "name": "Angelfish",
+    "imgUrl": "<image src=\"/images/fish1.gif\">Salt Water fish from Australia",
+    "items": [
+      {
+        "itemid": "EST-1",
+        "productid": "FI-SW-01",
+        "listprice": 16.5,
+        "unitcost": 10.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "Large",
+        "qty": 10000
+      },
+      {
+        "itemid": "EST-2",
+        "productid": "FI-SW-01",
+        "listprice": 16.5,
+        "unitcost": 10.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "Small",
+        "qty": 10000
+      }
+    ]
+  },
+  {
+    "productid": "FI-SW-02",
+    "category": "FISH",
+    "name": "Tiger Shark",
+    "imgUrl": "<image src=\"/images/fish4.gif\">Salt Water fish from Australia",
+    "items": [
+      {
+        "itemid": "EST-3",
+        "productid": "FI-SW-02",
+        "listprice": 18.5,
+        "unitcost": 12.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "Toothless",
         "qty": 10000
       }
     ]

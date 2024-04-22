@@ -1,33 +1,5 @@
 [
   {
-    "productid": "FL-DSH-01",
-    "category": "CATS",
-    "name": "Manx",
-    "imgUrl": "<image src=\"/images/cat2.gif\">Great for reducing mouse populations",
-    "items": [
-      {
-        "itemid": "EST-14",
-        "productid": "FL-DSH-01",
-        "listprice": 58.5,
-        "unitcost": 12.0,
-        "supplier": 1,
-        "status": "P",
-        "attr1": "Tailless",
-        "qty": 10000
-      },
-      {
-        "itemid": "EST-15",
-        "productid": "FL-DSH-01",
-        "listprice": 23.5,
-        "unitcost": 12.0,
-        "supplier": 1,
-        "status": "P",
-        "attr1": "With tail",
-        "qty": 10000
-      }
-    ]
-  },
-  {
     "productid": "FL-DLH-02",
     "category": "CATS",
     "name": "Persian",
@@ -51,6 +23,34 @@
         "supplier": 1,
         "status": "P",
         "attr1": "Adult Male",
+        "qty": 10000
+      }
+    ]
+  },
+  {
+    "productid": "FL-DSH-01",
+    "category": "CATS",
+    "name": "Manx",
+    "imgUrl": "<image src=\"/images/cat2.gif\">Great for reducing mouse populations",
+    "items": [
+      {
+        "itemid": "EST-14",
+        "productid": "FL-DSH-01",
+        "listprice": 58.5,
+        "unitcost": 12.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "Tailless",
+        "qty": 10000
+      },
+      {
+        "itemid": "EST-15",
+        "productid": "FL-DSH-01",
+        "listprice": 23.5,
+        "unitcost": 12.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "With tail",
         "qty": 10000
       }
     ]

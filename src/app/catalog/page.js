@@ -73,7 +73,7 @@ function MainImage() {
           src="/images/splash.gif"
           align="middle"
           alt="animal img"
-          usemap="#estoremap"
+          useMap="#estoremap"
         />
         <map name="estoremap">
           {categories.map((categoryArea) => (
