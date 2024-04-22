@@ -1,4 +1,5 @@
 import CommonLayout, { Header, Content, Footer } from "../commonLayout/page";
+import categories from "/public/catalogData.json";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -41,34 +42,22 @@ function SideBar() {
   return (
     <div id="Sidebar">
       <div id="SidebarContent">
-        <SideBarList href="" src="/images/fish_icon.gif">
-          Saltwater, Freshwater
-        </SideBarList>
-        <SideBarList href="" src="/images/dogs_icon.gif">
-          Various Breeds
-        </SideBarList>
-        <SideBarList href="" src="/images/reptiles_icon.gif">
-          Lizards, Turtles, Snakes
-        </SideBarList>
-        <SideBarList href="" src="/images/cats_icon.gif">
-          Various Breeds, Exotic Varieties
-        </SideBarList>
-        <SideBarList href="" src="/images/birds_icon.gif">
-          Exotic Varieties
-        </SideBarList>
+        {categories.map((category) => (
+          <SideBarList categotyObj={category} key={category.name} />
+        ))}
       </div>
     </div>
   );
 }
 
-function SideBarList({ href, src, children }) {
+function SideBarList({ categotyObj }) {
   return (
     <div>
-      <Link href={href}>
-        <img src={src} />
+      <Link href={`/catalog/categories/${categotyObj.name}`}>
+        <img src={categotyObj.image} />
       </Link>
       <br />
-      {children}
+      {categotyObj.varieties}
       <br />
     </div>
   );
@@ -87,12 +76,15 @@ function MainImage() {
           usemap="#estoremap"
         />
         <map name="estoremap">
-          <area alt="Birds" coords="72,2,280,250" href="" shape="RECT" />
-          <area alt="Fish" coords="2,180,72,250" href="" shape="RECT" />
-          <area alt="Dogs" coords="60,250,130,320" href="" shape="RECT" />
-          <area alt="Reptiles" coords="140,270,210,340" href="" shape="RECT" />
-          <area alt="Cats" coords="225,240,295,310" href="" shape="RECT" />
-          <area alt="Birds" coords="280,180,350,250" href="" shape="RECT" />
+          {categories.map((categoryArea) => (
+            <area
+              alt={categoryArea.name}
+              coords={categoryArea.coords}
+              href={`/catalog/categories/${categoryArea.name}`}
+              shape="RECT"
+              key={categoryArea.name}
+            />
+          ))}
         </map>
       </div>
     </div>

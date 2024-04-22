@@ -1,0 +1,32 @@
+[
+  {
+    "name": "FISH",
+    "image": "/images/fish_icon.gif",
+    "varieties": "Saltwater, Freshwater",
+    "coords": "2,180,72,250"
+  },
+  {
+    "name": "DOGS",
+    "image": "/images/dogs_icon.gif",
+    "varieties": "Various Breeds",
+    "coords": "60,250,130,320"
+  },
+  {
+    "name": "REPTILES",
+    "image": "/images/reptiles_icon.gif",
+    "varieties": "Lizards, Turtles, Snakes",
+    "coords": "140,270,210,340"
+  },
+  {
+    "name": "CATS",
+    "image": "/images/cats_icon.gif",
+    "varieties": "Various Breeds, Exotic Varieties",
+    "coords": "225,240,295,310"
+  },
+  {
+    "name": "BIRDS",
+    "image": "images/birds_icon.gif",
+    "varieties": "Exotic Varieties",
+    "coords": "72,2,280,250"
+  }
+]
