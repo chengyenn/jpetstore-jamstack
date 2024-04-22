@@ -28,19 +28,29 @@
     ]
   },
   {
-    "productid": "K9-PO-02",
+    "productid": "K9-CW-01",
     "category": "DOGS",
-    "name": "Dalmation",
-    "imgUrl": "<image src=\"/images/dog6.gif\">Cute dog from France",
+    "name": "Chihuahua",
+    "imgUrl": "<image src=\"/images/dog4.gif\">Great companion dog",
     "items": [
       {
-        "itemid": "EST-8",
-        "productid": "K9-PO-02",
-        "listprice": 18.5,
-        "unitcost": 12.0,
+        "itemid": "EST-26",
+        "productid": "K9-CW-01",
+        "listprice": 125.5,
+        "unitcost": 92.0,
         "supplier": 1,
         "status": "P",
-        "attr1": "Male Puppy",
+        "attr1": "Adult Male",
+        "qty": 10000
+      },
+      {
+        "itemid": "EST-27",
+        "productid": "K9-CW-01",
+        "listprice": 155.29,
+        "unitcost": 90.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "Adult Female",
         "qty": 10000
       }
     ]
@@ -48,7 +58,7 @@
   {
     "productid": "K9-DL-01",
     "category": "DOGS",
-    "name": "Bulldog",
+    "name": "Dalmation",
     "imgUrl": "<image src=\"/images/dog5.gif\">Great dog for a Fire Station",
     "items": [
       {
@@ -69,6 +79,24 @@
         "supplier": 1,
         "status": "P",
         "attr1": "Spotted Adult Female",
+        "qty": 10000
+      }
+    ]
+  },
+  {
+    "productid": "K9-PO-02",
+    "category": "DOGS",
+    "name": "Poodle",
+    "imgUrl": "<image src=\"/images/dog6.gif\">Cute dog from France",
+    "items": [
+      {
+        "itemid": "EST-8",
+        "productid": "K9-PO-02",
+        "listprice": 18.5,
+        "unitcost": 12.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "Male Puppy",
         "qty": 10000
       }
     ]
@@ -131,34 +159,6 @@
         "itemid": "EST-25",
         "productid": "K9-RT-02",
         "listprice": 325.29,
-        "unitcost": 90.0,
-        "supplier": 1,
-        "status": "P",
-        "attr1": "Adult Female",
-        "qty": 10000
-      }
-    ]
-  },
-  {
-    "productid": "K9-CW-01",
-    "category": "DOGS",
-    "name": "Chihuahua",
-    "imgUrl": "<image src=\"/images/dog4.gif\">Great companion dog",
-    "items": [
-      {
-        "itemid": "EST-26",
-        "productid": "K9-CW-01",
-        "listprice": 125.5,
-        "unitcost": 92.0,
-        "supplier": 1,
-        "status": "P",
-        "attr1": "Adult Male",
-        "qty": 10000
-      },
-      {
-        "itemid": "EST-27",
-        "productid": "K9-CW-01",
-        "listprice": 155.29,
         "unitcost": 90.0,
         "supplier": 1,
         "status": "P",
