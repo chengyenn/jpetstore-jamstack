@@ -1,33 +1,6 @@
 // import Image from "next/image";
 import Link from "next/link";
-
-const categories = [
-  {
-    name: "FISH",
-    productLink: "",
-    image: "/images/sm_fish.gif",
-  },
-  {
-    name: "DOGS",
-    productLink: "",
-    image: "/images/sm_dogs.gif",
-  },
-  {
-    name: "REPTILES",
-    productLink: "",
-    image: "/images/sm_reptiles.gif",
-  },
-  {
-    name: "CATS",
-    productLink: "",
-    image: "/images/sm_cats.gif",
-  },
-  {
-    name: "BIRDS",
-    productLink: "",
-    image: "/images/sm_birds.gif",
-  },
-];
+import categories from "/public/navData.json";
 
 export default function CommonLayout() {
   return (
@@ -112,7 +85,7 @@ function QuickLink() {
 function QuickLinkList({ categotyObj, children }) {
   return (
     <>
-      <Link href={categotyObj.productLink}>
+      <Link href={`/catalog/categories/${categotyObj.name}`}>
         <img src={categotyObj.image} />
       </Link>
       {children}

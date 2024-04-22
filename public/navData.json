@@ -1,0 +1,22 @@
+[
+  {
+    "name": "FISH",
+    "image": "/images/sm_fish.gif"
+  },
+  {
+    "name": "DOGS",
+    "image": "/images/sm_dogs.gif"
+  },
+  {
+    "name": "REPTILES",
+    "image": "/images/sm_reptiles.gif"
+  },
+  {
+    "name": "CATS",
+    "image": "/images/sm_cats.gif"
+  },
+  {
+    "name": "BIRDS",
+    "image": "/images/sm_birds.gif"
+  }
+]
