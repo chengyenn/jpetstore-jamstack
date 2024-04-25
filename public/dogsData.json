@@ -62,16 +62,6 @@
     "imgUrl": "<image src=\"/images/dog5.gif\">Great dog for a Fire Station",
     "items": [
       {
-        "itemid": "EST-9",
-        "productid": "K9-DL-01",
-        "listprice": 18.5,
-        "unitcost": 12.0,
-        "supplier": 1,
-        "status": "P",
-        "attr1": "Spotless Male Puppy",
-        "qty": 10000
-      },
-      {
         "itemid": "EST-10",
         "productid": "K9-DL-01",
         "listprice": 18.5,
@@ -79,6 +69,16 @@
         "supplier": 1,
         "status": "P",
         "attr1": "Spotted Adult Female",
+        "qty": 10000
+      },
+      {
+        "itemid": "EST-9",
+        "productid": "K9-DL-01",
+        "listprice": 18.5,
+        "unitcost": 12.0,
+        "supplier": 1,
+        "status": "P",
+        "attr1": "Spotless Male Puppy",
         "qty": 10000
       }
     ]

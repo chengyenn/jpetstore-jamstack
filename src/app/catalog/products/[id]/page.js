@@ -12,7 +12,7 @@ import CommonLayout, {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export default function Category({ params }) {
+export default function Product({ params }) {
   // const router = useRouter();
   // const { id } = router.query;
 
@@ -39,56 +39,57 @@ function BackLink() {
 }
 
 function EachProduct({ id }) {
-  const title = id.charAt(0) + id.slice(1).toLowerCase();
+  const title = id.slice(0, 2);
   let category;
-  title === "Fish"
+  title === "FI"
     ? (category = fishData)
-    : title === "Dogs"
+    : title === "K9"
     ? (category = dogsData)
-    : title === "Reptiles"
+    : title === "RP"
     ? (category = reptilesData)
-    : title === "Cats"
+    : title === "FL"
     ? (category = catsData)
     : (category = birdsData);
 
+  let product = category.find((el) => el.productid === id);
+
   return (
     <div id="Catalog">
-      <h2>{title}</h2>
+      <h2>{product.name}</h2>
       <table>
         <thead>
           <tr>
+            <th>Item ID</th>
             <th>Product ID</th>
-            <th>Name</th>
+            <th>Description</th>
+            <th>List Price</th>
+            <th> </th>
           </tr>
         </thead>
         <tbody>
-          {category.map((product) => (
-            <tr key={product.productid}>
+          {product.items.map((item) => (
+            <tr key={item.itemid}>
               <td>
-                <Link href={`/catalog/products/${product.productid}`}>
-                  {product.productid}
+                <Link href="">{item.itemid}</Link>
+              </td>
+              <td>{product.productid}</td>
+              <td>
+                {item.attr1} {product.name}
+              </td>
+              <td>
+                {item.listprice.toString().match(/\.\d$/)
+                  ? `$${item.listprice}0`
+                  : `$${item.listprice}`}
+              </td>
+              <td>
+                <Link href="" className="Button">
+                  Add to Cart
                 </Link>
               </td>
-              <td>{product.name}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      {/* <table>
-        <tr>
-          <th>Product ID</th>
-          <th>Name</th>
-        </tr>
-
-        {category.map((product) => (
-          <tr key={product.productid}>
-            <td>
-              <a>{product.productid}</a>
-            </td>
-            <td>{product.name}</td>
-          </tr>
-        ))}
-      </table> */}
     </div>
   );
 }
