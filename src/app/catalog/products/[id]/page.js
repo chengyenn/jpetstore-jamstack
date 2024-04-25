@@ -18,28 +18,7 @@ export default function Product({ params }) {
 
   if (!params.id) return <></>;
 
-  return (
-    <div>
-      <Header />
-      <Content>
-        <BackLink />
-        <EachProduct id={params.id} />
-      </Content>
-      <Footer />
-    </div>
-  );
-}
-
-function BackLink() {
-  return (
-    <div id="BackLink">
-      <Link href="/catalog">Return to Main Menu</Link>
-    </div>
-  );
-}
-
-function EachProduct({ id }) {
-  const title = id.slice(0, 2);
+  const title = params.id.slice(0, 2);
   let category;
   title === "FI"
     ? (category = fishData)
@@ -51,7 +30,30 @@ function EachProduct({ id }) {
     ? (category = catsData)
     : (category = birdsData);
 
-  let product = category.find((el) => el.productid === id);
+  return (
+    <div>
+      <Header />
+      <Content>
+        <BackLink categoryData={category} />
+        <EachProduct id={params.id} categoryData={category} />
+      </Content>
+      <Footer />
+    </div>
+  );
+}
+
+function BackLink({ categoryData }) {
+  return (
+    <div id="BackLink">
+      <Link href={`/catalog/categories/${categoryData[0].category}`}>
+        Return to <span>{categoryData[0].category}</span>
+      </Link>
+    </div>
+  );
+}
+
+function EachProduct({ id, categoryData }) {
+  let product = categoryData.find((el) => el.productid === id);
 
   return (
     <div id="Catalog">
