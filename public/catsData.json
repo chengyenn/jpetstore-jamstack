@@ -3,7 +3,8 @@
     "productid": "FL-DLH-02",
     "category": "CATS",
     "name": "Persian",
-    "imgUrl": "<image src=\"/images/cat1.gif\">Friendly house cat, doubles as a princess",
+    "imgUrl": "/images/cat1.gif",
+    "desc": "Friendly house cat, doubles as a princess",
     "items": [
       {
         "itemid": "EST-16",
@@ -31,7 +32,8 @@
     "productid": "FL-DSH-01",
     "category": "CATS",
     "name": "Manx",
-    "imgUrl": "<image src=\"/images/cat2.gif\">Great for reducing mouse populations",
+    "imgUrl": "/images/cat2.gif",
+    "desc": "Great for reducing mouse populations",
     "items": [
       {
         "itemid": "EST-14",

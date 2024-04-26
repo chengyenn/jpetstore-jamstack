@@ -3,7 +3,8 @@
     "productid": "AV-CB-01",
     "category": "BIRDS",
     "name": "Amazon Parrot",
-    "imgUrl": "<image src=\"/images/bird2.gif\">Great companion for up to 75 years",
+    "imgUrl": "/images/bird2.gif",
+    "desc": "Great companion for up to 75 years",
     "items": [
       {
         "itemid": "EST-18",
@@ -21,7 +22,8 @@
     "productid": "AV-SB-02",
     "category": "BIRDS",
     "name": "Finch",
-    "imgUrl": "<image src=\"/images/bird1.gif\">Great stress reliever",
+    "imgUrl": "/images/bird1.gif",
+    "desc": "Great stress reliever",
     "items": [
       {
         "itemid": "EST-19",

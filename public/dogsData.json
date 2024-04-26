@@ -3,7 +3,8 @@
     "productid": "K9-BD-01",
     "category": "DOGS",
     "name": "Bulldog",
-    "imgUrl": "<image src=\"/images/dog2.gif\">Friendly dog from England",
+    "imgUrl": "/images/dog2.gif",
+    "desc": "Friendly dog from England",
     "items": [
       {
         "itemid": "EST-6",
@@ -31,7 +32,8 @@
     "productid": "K9-CW-01",
     "category": "DOGS",
     "name": "Chihuahua",
-    "imgUrl": "<image src=\"/images/dog4.gif\">Great companion dog",
+    "imgUrl": "/images/dog4.gif",
+    "desc": "Great companion dog",
     "items": [
       {
         "itemid": "EST-26",
@@ -59,7 +61,8 @@
     "productid": "K9-DL-01",
     "category": "DOGS",
     "name": "Dalmation",
-    "imgUrl": "<image src=\"/images/dog5.gif\">Great dog for a Fire Station",
+    "imgUrl": "/images/dog5.gif",
+    "desc": "Great dog for a Fire Station",
     "items": [
       {
         "itemid": "EST-10",
@@ -87,7 +90,8 @@
     "productid": "K9-PO-02",
     "category": "DOGS",
     "name": "Poodle",
-    "imgUrl": "<image src=\"/images/dog6.gif\">Cute dog from France",
+    "imgUrl": "/images/dog6.gif",
+    "desc": "Cute dog from France",
     "items": [
       {
         "itemid": "EST-8",
@@ -105,7 +109,8 @@
     "productid": "K9-RT-01",
     "category": "DOGS",
     "name": "Golden Retriever",
-    "imgUrl": "<image src=\"/images/dog1.gif\">Great family dog",
+    "imgUrl": "/images/dog1.gif",
+    "desc": "Great family dog",
     "items": [
       {
         "itemid": "EST-28",
@@ -123,7 +128,8 @@
     "productid": "K9-RT-02",
     "category": "DOGS",
     "name": "Labrador Retriever",
-    "imgUrl": "<image src=\"/images/dog5.gif\">Great hunting dog",
+    "imgUrl": "/images/dog5.gif",
+    "desc": "Great hunting dog",
     "items": [
       {
         "itemid": "EST-22",
