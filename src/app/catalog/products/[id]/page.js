@@ -72,7 +72,11 @@ function EachProduct({ id, categoryData }) {
           {product.items.map((item) => (
             <tr key={item.itemid}>
               <td>
-                <Link href="">{item.itemid}</Link>
+                <Link
+                  href={`/catalog/items/${product.productid}=${item.itemid}`}
+                >
+                  {item.itemid}
+                </Link>
               </td>
               <td>{product.productid}</td>
               <td>

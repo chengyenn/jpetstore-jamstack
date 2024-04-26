@@ -3,7 +3,8 @@
     "productid": "RP-LI-02",
     "category": "REPTILES",
     "name": "Iguana",
-    "imgUrl": "<image src=\"/images/lizard1.gif\">Friendly green friend",
+    "imgUrl": "/images/lizard1.gif",
+    "desc": "Friendly green friend",
     "items": [
       {
         "itemid": "EST-13",
@@ -21,7 +22,8 @@
     "productid": "RP-SN-01",
     "category": "REPTILES",
     "name": "Rattlesnake",
-    "imgUrl": "<image src=\"/images/snake1.gif\">Doubles as a watch dog",
+    "imgUrl": "/images/snake1.gif",
+    "desc": "Doubles as a watch dog",
     "items": [
       {
         "itemid": "EST-11",
