@@ -1,9 +1,5 @@
 // product data
-import fishData from "/public/fishData.json";
-import dogsData from "/public/dogsData.json";
-import reptilesData from "/public/reptilesData.json";
-import catsData from "/public/catsData.json";
-import birdsData from "/public/birdsData.json";
+
 import CommonLayout, {
   Header,
   Content,
@@ -19,16 +15,16 @@ export default function Product({ params }) {
   if (!params.id) return <></>;
 
   const title = params.id.slice(0, 2);
-  let category;
-  title === "FI"
-    ? (category = fishData)
-    : title === "K9"
-    ? (category = dogsData)
-    : title === "RP"
-    ? (category = reptilesData)
-    : title === "FL"
-    ? (category = catsData)
-    : (category = birdsData);
+  // let category;
+  // title === "FI"
+  //   ? (category = fishData)
+  //   : title === "K9"
+  //   ? (category = dogsData)
+  //   : title === "RP"
+  //   ? (category = reptilesData)
+  //   : title === "FL"
+  //   ? (category = catsData)
+  //   : (category = birdsData);
 
   return (
     <div>
