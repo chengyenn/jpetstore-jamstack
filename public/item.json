@@ -1,0 +1,254 @@
+[
+  {
+    "itemid": "EST-1",
+    "productid": "FI-SW-01",
+    "listprice": 16.5,
+    "unitcost": 10.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Large"
+  },
+  {
+    "itemid": "EST-2",
+    "productid": "FI-SW-01",
+    "listprice": 16.5,
+    "unitcost": 10.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Small"
+  },
+  {
+    "itemid": "EST-3",
+    "productid": "FI-SW-02",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Toothless"
+  },
+  {
+    "itemid": "EST-4",
+    "productid": "FI-FW-01",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Spotted"
+  },
+  {
+    "itemid": "EST-5'",
+    "productid": "FI-FW-01",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Spotless"
+  },
+  {
+    "itemid": "EST-6",
+    "productid": "K9-BD-01",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Male Adult"
+  },
+  {
+    "itemid": "EST-7",
+    "productid": "K9-BD-01",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Female Puppy"
+  },
+  {
+    "itemid": "EST-8",
+    "productid": "K9-PO-02",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Male Puppy"
+  },
+  {
+    "itemid": "EST-9",
+    "productid": "K9-DL-01",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Spotless Male Puppy"
+  },
+  {
+    "itemid": "EST-10",
+    "productid": "K9-DL-01",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Spotted Adult Female"
+  },
+  {
+    "itemid": "EST-11",
+    "productid": "RP-SN-01",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Venomless"
+  },
+  {
+    "itemid": "EST-12",
+    "productid": "RP-SN-01",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Rattleless"
+  },
+  {
+    "itemid": "EST-13",
+    "productid": "RP-LI-02",
+    "listprice": 18.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Green Adult"
+  },
+  {
+    "itemid": "EST-14",
+    "productid": "FL-DSH-01",
+    "listprice": 58.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Tailless"
+  },
+  {
+    "itemid": "EST-15",
+    "productid": "FL-DSH-01",
+    "listprice": 23.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "With tail"
+  },
+  {
+    "itemid": "EST-16",
+    "productid": "FL-DLH-02",
+    "listprice": 93.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Female"
+  },
+  {
+    "itemid": "EST-17",
+    "productid": "FL-DLH-02",
+    "listprice": 93.5,
+    "unitcost": 12.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Male"
+  },
+  {
+    "itemid": "EST-18",
+    "productid": "AV-CB-01",
+    "listprice": 193.5,
+    "unitcost": 92.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Male"
+  },
+  {
+    "itemid": "EST-19",
+    "productid": "AV-SB-02",
+    "listprice": 15.5,
+    "unitcost": 2.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Male"
+  },
+  {
+    "itemid": "EST-20",
+    "productid": "FI-FW-02",
+    "listprice": 5.5,
+    "unitcost": 2.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Male"
+  },
+  {
+    "itemid": "EST-21",
+    "productid": "FI-FW-02",
+    "listprice": 5.29,
+    "unitcost": 1.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Female"
+  },
+  {
+    "itemid": "EST-22",
+    "productid": "K9-RT-02",
+    "listprice": 135.5,
+    "unitcost": 100.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Male"
+  },
+  {
+    "itemid": "EST-23",
+    "productid": "K9-RT-02",
+    "listprice": 145.49,
+    "unitcost": 100.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Female"
+  },
+  {
+    "itemid": "EST-24",
+    "productid": "K9-RT-02",
+    "listprice": 255.5,
+    "unitcost": 92.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Male"
+  },
+  {
+    "itemid": "EST-25",
+    "productid": "K9-RT-02",
+    "listprice": 325.29,
+    "unitcost": 90.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Female"
+  },
+  {
+    "itemid": "EST-26",
+    "productid": "K9-CW-01",
+    "listprice": 125.5,
+    "unitcost": 92.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Male"
+  },
+  {
+    "itemid": "EST-27",
+    "productid": "K9-CW-01",
+    "listprice": 155.29,
+    "unitcost": 90.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Female"
+  },
+  {
+    "itemid": "EST-28",
+    "productid": "K9-RT-01",
+    "listprice": 155.29,
+    "unitcost": 90.0,
+    "supplier": 1,
+    "status": "P",
+    "attr1": "Adult Female"
+  }
+]
