@@ -1,59 +1,64 @@
 // product data
-
+"use client";
 import CommonLayout, {
   Header,
   Content,
   Footer,
 } from "../../../commonLayout/page";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import productData from "/public/product.json";
+import itemData from "/public/item.json";
 
 export default function Product({ params }) {
-  // const router = useRouter();
-  // const { id } = router.query;
+  const [eachProduct, setEachProduct] = useState({});
+  const [eachItem, setEachItem] = useState([]);
 
+  useEffect(
+    function () {
+      const eachProductData = productData.filter(
+        (product) => product.productid === params.id
+      );
+      setEachProduct(eachProductData[0]);
+      const eachItemData = itemData.filter(
+        (item) => item.productid === params.id
+      );
+      setEachItem(eachItemData);
+    },
+    [params.id]
+  );
   if (!params.id) return <></>;
-
-  const title = params.id.slice(0, 2);
-  // let category;
-  // title === "FI"
-  //   ? (category = fishData)
-  //   : title === "K9"
-  //   ? (category = dogsData)
-  //   : title === "RP"
-  //   ? (category = reptilesData)
-  //   : title === "FL"
-  //   ? (category = catsData)
-  //   : (category = birdsData);
 
   return (
     <div>
       <Header />
       <Content>
-        <BackLink categoryData={category} />
-        <EachProduct id={params.id} categoryData={category} />
+        <BackLink productObj={eachProduct} />
+        <EachProduct
+          id={params.id}
+          productObj={eachProduct}
+          itemArr={eachItem}
+        />
       </Content>
       <Footer />
     </div>
   );
 }
 
-function BackLink({ categoryData }) {
+function BackLink({ productObj }) {
   return (
     <div id="BackLink">
-      <Link href={`/catalog/categories/${categoryData[0].category}`}>
-        Return to <span>{categoryData[0].category}</span>
+      <Link href={`/catalog/categories/${productObj.category}`}>
+        Return to <span>{productObj.category}</span>
       </Link>
     </div>
   );
 }
 
-function EachProduct({ id, categoryData }) {
-  let product = categoryData.find((el) => el.productid === id);
-
+function EachProduct({ id, productObj, itemArr }) {
   return (
     <div id="Catalog">
-      <h2>{product.name}</h2>
+      <h2>{productObj.name}</h2>
       <table>
         <thead>
           <tr>
@@ -65,18 +70,16 @@ function EachProduct({ id, categoryData }) {
           </tr>
         </thead>
         <tbody>
-          {product.items.map((item) => (
+          {itemArr.map((item) => (
             <tr key={item.itemid}>
               <td>
-                <Link
-                  href={`/catalog/items/${product.productid}=${item.itemid}`}
-                >
+                <Link href={`/catalog/items/${item.itemid}`}>
                   {item.itemid}
                 </Link>
               </td>
-              <td>{product.productid}</td>
+              <td>{productObj.productid}</td>
               <td>
-                {item.attr1} {product.name}
+                {item.attr1} {productObj.name}
               </td>
               <td>
                 {item.listprice.toString().match(/\.\d$/)
