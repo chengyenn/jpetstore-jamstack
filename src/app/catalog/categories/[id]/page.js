@@ -38,13 +38,10 @@ function EachProduct({ id }) {
 
   useEffect(
     function () {
-      async function getProduct() {
-        const eachProductData = productData.filter(
-          (product) => product.category === id
-        );
-        setEachProduct(eachProductData);
-      }
-      getProduct();
+      const eachProductData = productData.filter(
+        (product) => product.category === id
+      );
+      setEachProduct(eachProductData);
     },
     [id]
   );
