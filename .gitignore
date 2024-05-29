@@ -1,1 +1,4 @@
 .eslintrc.json
+
+### IntelliJ IDEA ###
+.idea
