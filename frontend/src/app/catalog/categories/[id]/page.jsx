@@ -4,12 +4,12 @@ import Content from "@/app/components/Content";
 import AllProduct from "@/app/catalog/categories/[id]/components/AllProduct";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
-import categories from "/public/catalogData.json";
+import categories from "/public/category.json";
 import productData from "/public/product.json";
 
 export function generateStaticParams() {
   return categories.map((category) => {
-    id: category.name;
+    id: category.catid;
   });
 }
 
