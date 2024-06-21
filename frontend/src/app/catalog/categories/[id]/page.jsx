@@ -1,13 +1,24 @@
 // product data
-"use client";
 import Header from "@/app/components/Header";
 import Content from "@/app/components/Content";
 import AllProduct from "@/app/catalog/categories/[id]/components/AllProduct";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
+import categories from "/public/catalogData.json";
+import productData from "/public/product.json";
+
+export function generateStaticParams() {
+  return categories.map((category) => {
+    id: category.name;
+  });
+}
 
 export default function Category({ params }) {
   if (!params.id) return <></>;
+
+  const eachProductData = productData.filter(
+    (product) => product.category === params.id
+  );
 
   return (
     <div>
@@ -17,7 +28,7 @@ export default function Category({ params }) {
           <Link href="/catalog">Return to Main Menu</Link>
         </div>
 
-        <AllProduct id={params.id} />
+        <AllProduct eachProductData={eachProductData} id={params.id} />
       </Content>
       <Footer />
     </div>

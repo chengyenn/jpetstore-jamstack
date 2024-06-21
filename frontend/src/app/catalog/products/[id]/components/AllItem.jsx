@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function AllItem({ productObj, itemArr }) {
+export default function AllItem({ productObj, itemsData }) {
   return (
     <div id="Catalog">
       <h2>{productObj.name}</h2>
@@ -15,7 +15,7 @@ export default function AllItem({ productObj, itemArr }) {
           </tr>
         </thead>
         <tbody>
-          {itemArr.map((item) => (
+          {itemsData.map((item) => (
             <tr key={item.itemid}>
               <td>
                 <Link href={`/catalog/items/${item.itemid}`}>

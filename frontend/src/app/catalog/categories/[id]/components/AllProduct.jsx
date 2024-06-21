@@ -1,20 +1,7 @@
-import { useEffect, useState } from "react";
-import productData from "/public/product.json";
 import Link from "next/link";
 
-export default function AllProduct({ id }) {
+export default function AllProduct({ eachProductData, id }) {
   const title = id.charAt(0) + id.slice(1).toLowerCase();
-  const [eachProduct, setEachProduct] = useState([]);
-
-  useEffect(
-    function () {
-      const eachProductData = productData.filter(
-        (product) => product.category === id
-      );
-      setEachProduct(eachProductData);
-    },
-    [id]
-  );
 
   return (
     <div id="Catalog">
@@ -27,7 +14,7 @@ export default function AllProduct({ id }) {
           </tr>
         </thead>
         <tbody>
-          {eachProduct.map((product) => (
+          {eachProductData.map((product) => (
             <tr key={product.productid}>
               <td>
                 <Link href={`/catalog/products/${product.productid}`}>
