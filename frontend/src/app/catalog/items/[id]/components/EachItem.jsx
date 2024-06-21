@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export default function EachItem({ itemObj, productObj, inventoryQty }) {
-  if (!itemObj || Object.keys(itemObj).length === 0) {
-    return null;
-  }
+  // if (!itemObj || Object.keys(itemObj).length === 0) {
+  //   return null;
+  // }
 
   const matchResult = productObj.descn.match(/src="([^"]+)"[^>]*>([^<]+)/);
   const imageUrl = matchResult ? matchResult[1] : ""; // 圖片Url
@@ -42,7 +42,7 @@ export default function EachItem({ itemObj, productObj, inventoryQty }) {
           </tr>
           <tr>
             <td>
-              {inventoryQty} {inventoryQty > 0 ? "in stock." : "out of stock"}
+              {inventoryQty > 0 ? `${inventoryQty} in stock.` : "out of stock"}
             </td>
           </tr>
           <tr>
