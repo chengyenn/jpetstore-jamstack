@@ -3,30 +3,40 @@
     "name": "FISH",
     "image": "/images/fish_icon.gif",
     "varieties": "Saltwater, Freshwater",
-    "coords": "2,180,72,250"
+    "coords": "2,180,72,250",
+    "width": "40",
+    "height": "20"
   },
   {
     "name": "DOGS",
     "image": "/images/dogs_icon.gif",
     "varieties": "Various Breeds",
-    "coords": "60,250,130,320"
+    "coords": "60,250,130,320",
+    "width": "46",
+    "height": "20"
   },
   {
     "name": "REPTILES",
     "image": "/images/reptiles_icon.gif",
     "varieties": "Lizards, Turtles, Snakes",
-    "coords": "140,270,210,340"
+    "coords": "140,270,210,340",
+    "width": "78",
+    "height": "20"
   },
   {
     "name": "CATS",
     "image": "/images/cats_icon.gif",
     "varieties": "Various Breeds, Exotic Varieties",
-    "coords": "225,240,295,310"
+    "coords": "225,240,295,310",
+    "width": "43",
+    "height": "20"
   },
   {
     "name": "BIRDS",
-    "image": "images/birds_icon.gif",
+    "image": "/images/birds_icon.gif",
     "varieties": "Exotic Varieties",
-    "coords": "72,2,280,250"
+    "coords": "72,2,280,250",
+    "width": "50",
+    "height": "20"
   }
 ]

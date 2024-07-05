@@ -24,6 +24,7 @@ export default function Main() {
             align="middle"
             alt="animal img"
             useMap="#estoremap"
+            priority
           />
           <map name="estoremap">
             {categories.map((categoryArea) => (
