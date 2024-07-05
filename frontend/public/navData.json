@@ -1,22 +1,32 @@
 [
   {
     "name": "FISH",
-    "image": "/images/sm_fish.gif"
+    "image": "/images/sm_fish.gif",
+    "width": "26",
+    "height": "15"
   },
   {
     "name": "DOGS",
-    "image": "/images/sm_dogs.gif"
+    "image": "/images/sm_dogs.gif",
+    "width": "30",
+    "height": "15"
   },
   {
     "name": "REPTILES",
-    "image": "/images/sm_reptiles.gif"
+    "image": "/images/sm_reptiles.gif",
+    "width": "52",
+    "height": "15"
   },
   {
     "name": "CATS",
-    "image": "/images/sm_cats.gif"
+    "image": "/images/sm_cats.gif",
+    "width": "28",
+    "height": "15"
   },
   {
     "name": "BIRDS",
-    "image": "/images/sm_birds.gif"
+    "image": "/images/sm_birds.gif",
+    "width": "33",
+    "height": "15"
   }
 ]

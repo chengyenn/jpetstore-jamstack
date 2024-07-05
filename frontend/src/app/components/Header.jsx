@@ -1,14 +1,20 @@
 import QuickLinkList from "@/app/components/QuickLinkList";
 import Link from "next/link";
 import categories from "/public/navData.json";
-
+import Image from "next/image";
 export default function Header() {
   return (
     <div id="Header">
       <div id="Logo">
         <div id="LogoContent">
           <Link href="/catalog">
-            <img src="/images/logo-topbar.gif" alt="logo" />
+            <Image
+              src="/images/logo-topbar.gif"
+              alt="logo"
+              loading="lazy"
+              width="287"
+              height="60"
+            />
           </Link>
         </div>
       </div>
@@ -16,14 +22,31 @@ export default function Header() {
       <div id="Menu">
         <div id="MenuContent">
           <Link href="">
-            <img src="/images/cart.gif" alt="img_car" align="middle" />
+            <Image
+              src="/images/cart.gif"
+              alt="img_car"
+              loading="lazy"
+              align="middle"
+              width="16"
+              height="18"
+            />
           </Link>
-          <img src="/images/separator.gif" align="middle" />
+          <Image
+            src="/images/separator.gif"
+            align="middle"
+            width="1"
+            height="18"
+          />
           <Link href="">Sign In</Link>
           {/* <a href="">Sign Out</a> */}
           {/* <img src="/images/separator.gif" align="middle" />
           <a href="">My Account</a> */}
-          <img src="/images/separator.gif" align="middle" />
+          <Image
+            src="/images/separator.gif"
+            align="middle"
+            width="1"
+            height="18"
+          />
           <Link href="/help" target="help">
             ?
           </Link>
@@ -42,7 +65,7 @@ export default function Header() {
       <div id="QuickLinks">
         {categories.map((product) => (
           <QuickLinkList categotyObj={product} key={product.name}>
-            <img src="/images/separator.gif" />
+            <Image src="/images/separator.gif" width="1" height="18" />
           </QuickLinkList>
         ))}
       </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function EachItem({ itemObj, productObj, inventoryQty }) {
   // if (!itemObj || Object.keys(itemObj).length === 0) {
@@ -15,7 +16,7 @@ export default function EachItem({ itemObj, productObj, inventoryQty }) {
         <thead>
           <tr>
             <td>
-              <img src={imageUrl} alt="itemImg" />
+              <Image src={imageUrl} alt="itemImg" width="125" height="125" />
               <span>{description}</span>
             </td>
           </tr>
