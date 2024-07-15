@@ -36,8 +36,9 @@ export default function Header() {
             align="middle"
             width="1"
             height="18"
+            alt="separator"
           />
-          <Link href="">Sign In</Link>
+          <Link href="/login">Sign In</Link>
           {/* <a href="">Sign Out</a> */}
           {/* <img src="/images/separator.gif" align="middle" />
           <a href="">My Account</a> */}
@@ -46,6 +47,7 @@ export default function Header() {
             align="middle"
             width="1"
             height="18"
+            alt="separator"
           />
           <Link href="/help" target="help">
             ?
@@ -65,7 +67,12 @@ export default function Header() {
       <div id="QuickLinks">
         {categories.map((product) => (
           <QuickLinkList categotyObj={product} key={product.name}>
-            <Image src="/images/separator.gif" width="1" height="18" />
+            <Image
+              src="/images/separator.gif"
+              width="1"
+              height="18"
+              alt="separator"
+            />
           </QuickLinkList>
         ))}
       </div>
