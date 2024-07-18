@@ -6,32 +6,46 @@ import Link from "next/link";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
+async function loginCheck(data) {
+  const res = await fetch(`${apiDomain}/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams(data),
+  });
+
+  if (res.ok) {
+    const result = await res.json();
+    console.log("Result:", result);
+    return result;
+  } else {
+    const result = await res.json();
+    console.error("Error:", result);
+    throw new Error(result.error);
+  }
+}
+
 export default function Login() {
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     console.log("Data:", data);
 
-    const res = await fetch(`${apiDomain}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams(data),
-    });
-
-    if (res.ok) {
-      alert("Login successful");
-      setTimeout(() => {
-        location.href = "/catalog";
-      }, 1000);
-    } else {
-      const result = await res.json();
-      console.error("Error:", result);
-      alert(`Login failed: ${result.error}`);
-    }
+    loginCheck(data)
+      .then((result) => {
+        localStorage.setItem("token", result.token);
+        localStorage.setItem("username", result.username);
+        alert("Login successful");
+        setTimeout(() => {
+          location.href = "/catalog";
+        }, 1000);
+      })
+      .catch((error) => {
+        alert(`Login failed: ${error}`);
+      });
   }
 
   return (

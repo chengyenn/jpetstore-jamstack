@@ -1,9 +1,25 @@
+"use client";
 import Header from "@/app/components/Header";
 import Content from "@/app/components/Content";
 import Main from "@/app/catalog/components/Main";
 import Footer from "@/app/components/Footer";
+import useLoginCheck from "@/hooks/useLoginCheck";
+import { useEffect, useState } from "react";
 
 export default function Catalog() {
+  const [isLogined, setIsLogined] = useLoginCheck();
+  const [userid, setUserid] = useState("");
+
+  useEffect(() => {
+    if (isLogined) {
+      setUserid(localStorage.getItem("username"));
+    } else {
+      if (userid !== "") {
+        setUserid("");
+      }
+    }
+  }, [isLogined]);
+
   return (
     <div>
       <Header />
@@ -11,9 +27,11 @@ export default function Catalog() {
         {/* Welcome */}
         <div id="Welcome">
           <div id="WelcomeContent">
-            <div>
-              Welcome <span>Kazuki</span> !
-            </div>
+            {isLogined && (
+              <div>
+                Welcome <span>{userid}</span> !
+              </div>
+            )}
           </div>
         </div>
         <Main />
