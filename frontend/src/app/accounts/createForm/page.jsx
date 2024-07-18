@@ -1,8 +1,8 @@
-"use client";
 import Header from "@/app/components/Header";
 import Content from "@/app/components/Content";
 import Footer from "@/app/components/Footer";
 import category from "/public/category.json";
+import UserInfoTable from "@/app/accounts/components/UserInfoTable";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
@@ -150,20 +150,5 @@ export default function CreateUserInfo() {
       </Content>
       <Footer />
     </div>
-  );
-}
-
-function UserInfoTable({ title, type, size, name }) {
-  return (
-    <tr>
-      <td>{title}</td>
-      <td>
-        <input
-          type={type ? type : "text"}
-          size={size ? size : ""}
-          name={name}
-        />
-      </td>
-    </tr>
   );
 }

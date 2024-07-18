@@ -1,8 +1,48 @@
+"use client";
 import QuickLinkList from "@/app/components/QuickLinkList";
 import Link from "next/link";
 import categories from "/public/navData.json";
 import Image from "next/image";
+import useLoginCheck from "@/hooks/useLoginCheck";
+import { useState } from "react";
+
+const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
+
+async function signOutCheck() {
+  const res = await fetch(`${apiDomain}/logout`, {
+    method: "POST",
+    credentials: "include",
+  });
+
+  if (res.ok) {
+    const result = await res.json();
+    return result;
+  } else {
+    const result = await res.json();
+    throw new Error(result);
+  }
+}
+
 export default function Header() {
+  const [isLogined, setIsLogined] = useLoginCheck();
+
+  function handleSignOut(event) {
+    event.preventDefault();
+
+    signOutCheck()
+      .then(() => {
+        localStorage.clear();
+        setIsLogined(false);
+        alert("Sign Out successful");
+        setTimeout(() => {
+          location.href = "/catalog";
+        }, 1000);
+      })
+      .catch((error) => {
+        alert(`Sign Out failed: ${error}`);
+      });
+  }
+
   return (
     <div id="Header">
       <div id="Logo">
@@ -38,10 +78,24 @@ export default function Header() {
             height="18"
             alt="separator"
           />
-          <Link href="/login">Sign In</Link>
-          {/* <a href="">Sign Out</a> */}
-          {/* <img src="/images/separator.gif" align="middle" />
-          <a href="">My Account</a> */}
+          {isLogined ? (
+            <>
+              <Link onClick={handleSignOut} href="/catalog">
+                Sign Out
+              </Link>
+              <Image
+                src="/images/separator.gif"
+                align="middle"
+                width="1"
+                height="18"
+                alt="separator"
+              />
+              <Link href="/accounts/updateForm">My Account</Link>
+            </>
+          ) : (
+            <Link href="/login">Sign In</Link>
+          )}
+
           <Image
             src="/images/separator.gif"
             align="middle"
