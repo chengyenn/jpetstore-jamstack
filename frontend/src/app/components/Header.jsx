@@ -4,7 +4,6 @@ import Link from "next/link";
 import categories from "/public/navData.json";
 import Image from "next/image";
 import useLoginCheck from "@/hooks/useLoginCheck";
-import { useState } from "react";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
@@ -61,7 +60,7 @@ export default function Header() {
 
       <div id="Menu">
         <div id="MenuContent">
-          <Link href="">
+          <Link href="/cart">
             <Image
               src="/images/cart.gif"
               alt="img_car"

@@ -1,6 +1,28 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 
-export default function AllItem({ productObj, itemsData }) {
+export default function AllItem({ productObj, itemsData, inventoryData }) {
+  // add item to cart
+  function handleAddtoCart(thisItem) {
+    const des = thisItem.attr1 + " " + productObj.name;
+    const stock = inventoryData.find(
+      (inventory) => inventory.itemid === thisItem.itemid
+    ).qty;
+    const newCartItem = {
+      itemid: thisItem.itemid,
+      productid: productObj.productid,
+      description: des,
+      inStock: stock > 0 ? "true" : "false",
+      quantity: 1,
+      listprice: thisItem.listprice,
+    };
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(newCartItem);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
   return (
     <div id="Catalog">
       <h2>{productObj.name}</h2>
@@ -24,15 +46,21 @@ export default function AllItem({ productObj, itemsData }) {
               </td>
               <td>{productObj.productid}</td>
               <td>
-                {item.attr1} {productObj.name}
+                <span>{item.attr1}</span>
+                <span>{item.attr2}</span>
+                <span>{item.attr3}</span>
+                <span>{item.attr4}</span>
+                <span>{item.attr5}</span>
+                <span>&nbsp;</span>
+                <span>{productObj.name}</span>
               </td>
+              <td>{item.listprice.toFixed(2)}</td>
               <td>
-                {item.listprice.toString().match(/\.\d$/)
-                  ? `$${item.listprice}0`
-                  : `$${item.listprice}`}
-              </td>
-              <td>
-                <Link href="" className="Button">
+                <Link
+                  href="/cart"
+                  className="Button"
+                  onClick={() => handleAddtoCart(item)}
+                >
                   Add to Cart
                 </Link>
               </td>
