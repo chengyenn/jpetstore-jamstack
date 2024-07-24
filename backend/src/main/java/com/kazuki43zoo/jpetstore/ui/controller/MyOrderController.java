@@ -18,6 +18,7 @@ package com.kazuki43zoo.jpetstore.ui.controller;
 import com.kazuki43zoo.jpetstore.component.message.Messages;
 import com.kazuki43zoo.jpetstore.domain.Account;
 import com.kazuki43zoo.jpetstore.domain.Order;
+import com.kazuki43zoo.jpetstore.service.AccountService;
 import com.kazuki43zoo.jpetstore.service.OrderService;
 import com.kazuki43zoo.jpetstore.ui.Cart;
 import lombok.RequiredArgsConstructor;
@@ -42,6 +43,7 @@ import java.util.List;
 public class MyOrderController {
 
   private final OrderService orderService;
+  private final AccountService accountService;
   private final Cart cart;
 
   @ModelAttribute("orderForm")
@@ -50,7 +52,8 @@ public class MyOrderController {
   }
 
   @GetMapping(path = "/create", params = "form")
-  public String createForm(OrderForm form, @AuthenticationPrincipal(expression = "account") Account account) {
+  public String createForm(OrderForm form, @RequestParam("username") String username) {
+    Account account = accountService.findByUsername(username);
     if (cart.isEmpty()) {
       return "redirect:/cart";
     }
@@ -59,7 +62,7 @@ public class MyOrderController {
   }
 
   @PostMapping(path = "/create", params = "continue")
-  public String createContinue(@Validated OrderForm form, BindingResult result, Model model) {
+  public String createContinue(@RequestBody @Validated OrderForm form, BindingResult result, Model model) {
     if (result.hasErrors()) {
       model.addAttribute(newValidationErrorMessages());
       return "order/orderBasicForm";
@@ -80,20 +83,26 @@ public class MyOrderController {
     return "order/orderConfirm";
   }
 
+
+  // cart 傳進來的地方
   @PostMapping("/create")
   public String create(@Validated @ModelAttribute(binding = false) OrderForm form,
-                       BindingResult result,
-                       @AuthenticationPrincipal(expression = "account") Account account,
+//                       BindingResult result,
+                       @RequestBody String username,
                        RedirectAttributes redirectAttributes, SessionStatus sessionStatus) {
-    if (cart.isEmpty()) {
-      return "redirect:/cart";
-    }
+//    if (cart.isEmpty()) {
+//      return "redirect:/cart";
+//    }
 
-    if (result.hasErrors()) {
-      redirectAttributes.addFlashAttribute(newValidationErrorMessages());
-      return "redirect:/my/orders/create?from";
-    }
+//    if (result.hasErrors()) {
+//      redirectAttributes.addFlashAttribute(newValidationErrorMessages());
+//      return "redirect:/my/orders/create?from";
+//    }
 
+    // @RequestBody 要傳一個 itemIds Array 近來，接下來做 for 去執行下面兩個動作
+    // Item item = catalogService.getItem(itemId);
+    // cart.addItem(item, isInStock);
+    Account account = accountService.findByUsername(username);
     Order order = form.toOrder(cart);
     orderService.createOrder(order, account);
 

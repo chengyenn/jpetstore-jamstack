@@ -5,6 +5,7 @@ import Footer from "@/app/components/Footer";
 import category from "/public/category.json";
 import UserInfoTable from "@/app/accounts/components/UserInfoTable";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 const initialInfo = {
@@ -255,6 +256,7 @@ export default function UpdateUserInfo() {
 
             <input id="save" type="submit" value="Save Account Information" />
           </form>
+          <Link href="">My Orders</Link>
         </div>
       </Content>
       <Footer />

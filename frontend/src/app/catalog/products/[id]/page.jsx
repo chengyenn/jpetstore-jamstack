@@ -6,6 +6,7 @@ import Footer from "@/app/components/Footer";
 import Link from "next/link";
 import productData from "/public/product.json";
 import itemData from "/public/item.json";
+import inventoryData from "/public/inventory.json";
 
 export function generateStaticParams() {
   return productData.map((product) => {
@@ -32,7 +33,11 @@ export default function Product({ params }) {
           </Link>
         </div>
 
-        <AllItem productObj={whichCategory} itemsData={eachItemData} />
+        <AllItem
+          productObj={whichCategory}
+          itemsData={eachItemData}
+          inventoryData={inventoryData}
+        />
       </Content>
       <Footer />
     </div>
