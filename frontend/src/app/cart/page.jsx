@@ -2,6 +2,7 @@
 import Header from "@/app/components/Header";
 import Content from "@/app/components/Content";
 import Footer from "@/app/components/Footer";
+import CartItem from "@/app/cart/components/CartItem";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -55,6 +56,7 @@ export default function Cart() {
       item.itemid === thisid ? { ...item, quantity: thisQuantity } : item
     );
     setCartList(updateCarList);
+    localStorage.setItem("cart", JSON.stringify(updateCarList));
     console.log("update quantity CarList:", updateCarList);
 
     // update total cost of quantityChanged item in eachTotalCost
@@ -84,8 +86,12 @@ export default function Cart() {
       }, 1000);
     } else {
       // update last cartList to local storage
-      localStorage.setItem("cart", JSON.stringify(cartList));
-      console.log("Submit Cart List", JSON.parse(localStorage.getItem("cart")));
+      if (cartList.length !== 0) {
+        localStorage.setItem("cart", JSON.stringify(cartList));
+        location.href = "/order/orderBasicForm";
+      } else {
+        alert("Your cart is empty.");
+      }
     }
   }
 
@@ -163,56 +169,5 @@ export default function Cart() {
       </Content>
       <Footer />
     </div>
-  );
-}
-
-function CartItem({ itemObj, onRemoveItem, onSubTotal }) {
-  const [quantity, setQuantity] = useState(itemObj.quantity);
-  let totalCost = itemObj.listprice * quantity;
-
-  useEffect(() => {
-    onSubTotal(quantity, totalCost, itemObj.itemid);
-  }, [quantity]);
-
-  return (
-    <tr>
-      <td>
-        <Link href="">
-          <span>{itemObj.itemid}</span>
-        </Link>
-      </td>
-      <td>
-        <span>{itemObj.productid}</span>
-      </td>
-      <td>
-        <span>{itemObj.description}</span>
-      </td>
-      <td>
-        <span>{itemObj.inStock}</span>
-      </td>
-      <td>
-        <input
-          type="number"
-          min={1}
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        />
-      </td>
-      <td>
-        <span>{`$${itemObj.listprice.toFixed(2)}`}</span>
-      </td>
-      <td>
-        <span>{`$${totalCost.toFixed(2)}`}</span>
-      </td>
-      <td>
-        <Link
-          href="/cart"
-          className="button"
-          onClick={() => onRemoveItem(itemObj)}
-        >
-          Remove
-        </Link>
-      </td>
-    </tr>
   );
 }

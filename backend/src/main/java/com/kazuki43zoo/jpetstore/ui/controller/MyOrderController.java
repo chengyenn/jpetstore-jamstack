@@ -22,6 +22,9 @@ import com.kazuki43zoo.jpetstore.service.AccountService;
 import com.kazuki43zoo.jpetstore.service.OrderService;
 import com.kazuki43zoo.jpetstore.ui.Cart;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +39,7 @@ import java.util.List;
 /**
  * @author Kazuki Shimizu
  */
-@SessionAttributes("orderForm")
+//@SessionAttributes("orderForm")
 @RequestMapping("/my/orders")
 @Controller
 @RequiredArgsConstructor
@@ -51,14 +54,26 @@ public class MyOrderController {
     return new OrderForm();
   }
 
+//  @GetMapping(path = "/create", params = "form")
+//  public String createForm(OrderForm form, @RequestParam("username") String username) {
+//    Account account = accountService.findByUsername(username);
+//
+//    if (cart.isEmpty()) {
+//      return "redirect:/cart";
+//    }
+//    form.initialize(account);
+//    return "order/orderBasicForm";
+//  }
+
   @GetMapping(path = "/create", params = "form")
-  public String createForm(OrderForm form, @RequestParam("username") String username) {
+  public ResponseEntity<AccountForm> createForm(@RequestParam("username") String username) {
     Account account = accountService.findByUsername(username);
-    if (cart.isEmpty()) {
-      return "redirect:/cart";
+    if (account == null) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
-    form.initialize(account);
-    return "order/orderBasicForm";
+    AccountForm form = new AccountForm();
+    BeanUtils.copyProperties(account, form, "password");
+    return ResponseEntity.ok(form);
   }
 
   @PostMapping(path = "/create", params = "continue")
