@@ -88,7 +88,7 @@ export default function Cart() {
       // update last cartList to local storage
       if (cartList.length !== 0) {
         localStorage.setItem("cart", JSON.stringify(cartList));
-        location.href = "/order/orderBasicForm";
+        window.location.href = "/order/orderBasicForm";
       } else {
         alert("Your cart is empty.");
       }

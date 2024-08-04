@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import addItemtoCart from "@/app/catalog/function/addItemtoCart";
 
 export default function EachItem({ itemObj, productObj, inventoryQty }) {
   const matchResult = productObj.descn.match(/src="([^"]+)"[^>]*>([^<]+)/);
@@ -9,18 +10,7 @@ export default function EachItem({ itemObj, productObj, inventoryQty }) {
 
   // add item to cart
   function handleAddtoCart(thisItem) {
-    const des = thisItem.attr1 + " " + productObj.name;
-    const newCartItem = {
-      itemid: thisItem.itemid,
-      productid: productObj.productid,
-      description: des,
-      inStock: inventoryQty > 0 ? "true" : "false",
-      quantity: 1,
-      listprice: thisItem.listprice,
-    };
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(newCartItem);
-    localStorage.setItem("cart", JSON.stringify(cart));
+    addItemtoCart(thisItem, productObj, inventoryQty);
   }
 
   return (
@@ -66,17 +56,19 @@ export default function EachItem({ itemObj, productObj, inventoryQty }) {
                 : `$${itemObj.listprice}`}
             </td>
           </tr>
-          <tr>
-            <td>
-              <Link
-                href="/cart"
-                className="Button"
-                onClick={() => handleAddtoCart(itemObj)}
-              >
-                Add to Cart
-              </Link>
-            </td>
-          </tr>
+          {inventoryQty > 0 && (
+            <tr>
+              <td>
+                <Link
+                  href="/cart"
+                  className="Button"
+                  onClick={() => handleAddtoCart(itemObj)}
+                >
+                  Add to Cart
+                </Link>
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

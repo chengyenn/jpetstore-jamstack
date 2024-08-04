@@ -1,26 +1,14 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import addItemtoCart from "@/app/catalog/function/addItemtoCart";
 
 export default function AllItem({ productObj, itemsData, inventoryData }) {
   // add item to cart
   function handleAddtoCart(thisItem) {
-    const des = thisItem.attr1 + " " + productObj.name;
-    const stock = inventoryData.find(
+    const inventoryQty = inventoryData.find(
       (inventory) => inventory.itemid === thisItem.itemid
     ).qty;
-    const newCartItem = {
-      itemid: thisItem.itemid,
-      productid: productObj.productid,
-      description: des,
-      inStock: stock > 0 ? "true" : "false",
-      quantity: 1,
-      listprice: thisItem.listprice,
-    };
-
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(newCartItem);
-    localStorage.setItem("cart", JSON.stringify(cart));
+    addItemtoCart(thisItem, productObj, inventoryQty);
   }
 
   return (
