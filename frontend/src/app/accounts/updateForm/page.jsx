@@ -43,7 +43,7 @@ async function updateInfo(newUserInfo) {
     return result;
   } else {
     const result = await res.json();
-    console.error("Error:", result);
+    console.error("Error:", result.error);
     throw new Error(result.error);
   }
 }
@@ -59,8 +59,13 @@ export default function UpdateUserInfo() {
       );
       if (res.ok) {
         const result = await res.json();
-        setUserInfo(result);
-        console.log("Get Result:", result);
+        // avoid null value, replace with empty string
+        const sanitizedResult = Object.fromEntries(
+          Object.entries(result).map(([key, value]) => [key, value ?? ""])
+        );
+
+        setUserInfo(sanitizedResult);
+        console.log("Get Result:", sanitizedResult);
       } else {
         const result = await res.json();
         console.error("Error:", result.error);
@@ -81,15 +86,22 @@ export default function UpdateUserInfo() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Submit:", userInfo);
 
-    updateInfo(userInfo)
+    // avoid passwaord and repeatedPassword is ""
+    const dataToSubmit = { ...userInfo };
+    if (dataToSubmit.password === "") {
+      dataToSubmit.password = null;
+    }
+    if (dataToSubmit.repeatedPassword === "") {
+      dataToSubmit.repeatedPassword = null;
+    }
+    console.log("Submit:", dataToSubmit);
+
+    updateInfo(dataToSubmit)
       .then(() => {
         alert("Update Information Successfully.");
       })
-      .catch((error) => {
-        alert(`Update failed: ${error}`);
-      });
+      .catch((error) => alert(`Update failed: ${error}`));
   }
 
   return (
@@ -256,7 +268,7 @@ export default function UpdateUserInfo() {
 
             <input id="save" type="submit" value="Save Account Information" />
           </form>
-          <Link href="">My Orders</Link>
+          <Link href="/order/userOrders">My Orders</Link>
         </div>
       </Content>
       <Footer />

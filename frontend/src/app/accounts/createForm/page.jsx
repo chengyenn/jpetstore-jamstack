@@ -42,6 +42,12 @@ export default function CreateUserInfo() {
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+    data.listOption === "on"
+      ? (data.listOption = true)
+      : (data.listOption = false);
+    data.bannerOption === "on"
+      ? (data.bannerOption = true)
+      : (data.bannerOption = false);
     console.log("Data:", data);
 
     signup(data)
@@ -134,12 +140,12 @@ export default function CreateUserInfo() {
                   <UserInfoTable
                     title="Enable MyList:"
                     type="checkbox"
-                    name="mylistopt"
+                    name="listOption"
                   />
                   <UserInfoTable
                     title="Enable MyBanner:"
                     type="checkbox"
-                    name="banneropt"
+                    name="bannerOption"
                   />
                 </tbody>
               </table>

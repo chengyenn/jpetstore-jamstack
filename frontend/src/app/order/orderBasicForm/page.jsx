@@ -9,15 +9,36 @@ const initialOrderInfo = {
   cardType: "Visa",
   creditCard: "",
   expiryDate: "",
-  billToFirstName: "",
-  billToLastName: "",
-  billAddress1: "",
-  billAddress2: "",
-  billCity: "",
-  billState: "",
-  billZip: "",
-  billCountry: "",
+  shipToFirstName: "",
+  shipToLastName: "",
+  shipAddress1: "",
+  shipAddress2: "",
+  shipCity: "",
+  shipState: "",
+  shipZip: "",
+  shipCountry: "",
 };
+
+async function createOrder(orderReq) {
+  const res = await fetch(`${apiDomain}/my/orders/create`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(orderReq),
+  });
+  console.log("Order Request JSON:", JSON.stringify(orderReq));
+
+  if (res.ok) {
+    const result = await res.json();
+    console.log("Create Order Result:", result);
+    return result;
+  } else {
+    const result = await res.json();
+    console.error("Create Order Error:", result.error);
+    throw new Error(result.error);
+  }
+}
 
 export default function OrderBasicForm() {
   const [orderInfo, setOrderInfo] = useState(initialOrderInfo);
@@ -31,17 +52,17 @@ export default function OrderBasicForm() {
       );
       if (res.ok) {
         const result = await res.json();
-        console.log("Get Result:", result);
+        // console.log("Get Result:", result);
         const updateOrderInfo = {
           ...initialOrderInfo,
-          billToFirstName: result.firstName,
-          billToLastName: result.lastName,
-          billAddress1: result.address1,
-          billAddress2: result.address2,
-          billCity: result.city,
-          billState: result.state,
-          billZip: result.zip,
-          billCountry: result.country,
+          shipToFirstName: result.firstName,
+          shipToLastName: result.lastName,
+          shipAddress1: result.address1,
+          shipAddress2: result.address2,
+          shipCity: result.city,
+          shipState: result.state,
+          shipZip: result.zip,
+          shipCountry: result.country,
         };
         setOrderInfo(updateOrderInfo);
       } else {
@@ -60,6 +81,34 @@ export default function OrderBasicForm() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log("Order Info:", orderInfo);
+    console.log("Cart List", JSON.parse(localStorage.getItem("cart")));
+    const confirm = window.confirm(
+      `It's your shipping information: \n First Name: ${orderInfo.shipToFirstName} \n Last Name: ${orderInfo.shipToLastName} \n Address1: ${orderInfo.shipAddress1} \n Address2: ${orderInfo.shipAddress2} \n City: ${orderInfo.shipCity} \n State: ${orderInfo.shipState} \n Zip: ${orderInfo.shipZip} \n Country: ${orderInfo.shipCountry}`
+    );
+    if (confirm) {
+      // 打 create order 的 api
+      const thisUser = localStorage.getItem("username");
+      const thisOrder = JSON.parse(localStorage.getItem("cart")).map(
+        (item) => ({
+          itemId: item.itemid,
+          qty: item.quantity,
+        })
+      );
+      const orderReq = {
+        username: thisUser,
+        items: thisOrder,
+        inStock: true,
+        ...orderInfo,
+      };
+
+      createOrder(orderReq)
+        .then(() => {
+          localStorage.setItem("cart", JSON.stringify([]));
+          alert("Order created successfully!");
+          // location.href = "";
+        })
+        .catch((error) => alert("Order created failed!"));
+    }
   }
 
   return (
@@ -109,60 +158,60 @@ export default function OrderBasicForm() {
                   onChange={handleChange}
                 />
                 <tr>
-                  <th colSpan="2">Billing Address</th>
+                  <th colSpan="2">Shipping Address</th>
                 </tr>
                 <OrderInfo
                   title="First name:"
-                  name="billToFirstName"
-                  value={orderInfo.billToFirstName}
+                  name="shipToFirstName"
+                  value={orderInfo.shipToFirstName}
                   onChange={handleChange}
                 />
                 <OrderInfo
                   title="Last name:"
-                  name="billToLastName"
-                  value={orderInfo.billToLastName}
+                  name="shipToLastName"
+                  value={orderInfo.shipToLastName}
                   onChange={handleChange}
                 />
                 <OrderInfo
                   title="Address 1:"
-                  name="billAddress1"
+                  name="shipAddress1"
                   size="40"
-                  value={orderInfo.billAddress1}
+                  value={orderInfo.shipAddress1}
                   onChange={handleChange}
                 />
                 <OrderInfo
                   title="Address 2:"
-                  name="billAddress2"
+                  name="shipAddress2"
                   size="40"
-                  value={orderInfo.billAddress2}
+                  value={orderInfo.shipAddress2}
                   onChange={handleChange}
                 />
                 <OrderInfo
                   title="City:"
-                  name="billCity"
+                  name="shipCity"
                   size="40"
-                  value={orderInfo.billCity}
+                  value={orderInfo.shipCity}
                   onChange={handleChange}
                 />
                 <OrderInfo
                   title="State:"
-                  name="billState"
+                  name="shipState"
                   size="4"
-                  value={orderInfo.billState}
+                  value={orderInfo.shipState}
                   onChange={handleChange}
                 />
                 <OrderInfo
                   title="Zip:"
-                  name="billZip"
+                  name="shipZip"
                   size="10"
-                  value={orderInfo.billZip}
+                  value={orderInfo.shipZip}
                   onChange={handleChange}
                 />
                 <OrderInfo
                   title="Country:"
-                  name="billCountry"
+                  name="shipCountry"
                   size="15"
-                  value={orderInfo.billCountry}
+                  value={orderInfo.shipCountry}
                   onChange={handleChange}
                 />
               </tbody>

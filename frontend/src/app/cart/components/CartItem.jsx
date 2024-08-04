@@ -12,7 +12,7 @@ export default function CartItem({ itemObj, onRemoveItem, onSubTotal }) {
   return (
     <tr>
       <td>
-        <Link href="">
+        <Link href={`/catalog/items/${itemObj.itemid}`}>
           <span>{itemObj.itemid}</span>
         </Link>
       </td>
@@ -29,8 +29,9 @@ export default function CartItem({ itemObj, onRemoveItem, onSubTotal }) {
         <input
           type="number"
           min={1}
+          max={itemObj.inStock}
           value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
+          onChange={(e) => setQuantity(Number(e.target.value))}
         />
       </td>
       <td>
