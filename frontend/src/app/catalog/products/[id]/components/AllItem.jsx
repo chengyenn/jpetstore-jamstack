@@ -44,13 +44,19 @@ export default function AllItem({ productObj, itemsData, inventoryData }) {
               </td>
               <td>{item.listprice.toFixed(2)}</td>
               <td>
-                <Link
-                  href="/cart"
-                  className="Button"
-                  onClick={() => handleAddtoCart(item)}
-                >
-                  Add to Cart
-                </Link>
+                {inventoryData.find(
+                  (inventory) => inventory.itemid === item.itemid
+                ).qty > 0 ? (
+                  <Link
+                    href="/cart"
+                    className="Button"
+                    onClick={() => handleAddtoCart(item)}
+                  >
+                    Add to Cart
+                  </Link>
+                ) : (
+                  <span style={{ color: "red" }}>Out of Stock</span>
+                )}
               </td>
             </tr>
           ))}

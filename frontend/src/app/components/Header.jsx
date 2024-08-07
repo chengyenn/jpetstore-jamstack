@@ -118,14 +118,16 @@ export default function Header() {
       </div>
 
       <div id="QuickLinks">
-        {categories.map((product) => (
+        {categories.map((product, index) => (
           <QuickLinkList categotyObj={product} key={product.name}>
-            <Image
-              src="/images/separator.gif"
-              width="1"
-              height="18"
-              alt="separator"
-            />
+            {index !== categories.length - 1 && (
+              <Image
+                src="/images/separator.gif"
+                width="1"
+                height="18"
+                alt="separator"
+              />
+            )}
           </QuickLinkList>
         ))}
       </div>
