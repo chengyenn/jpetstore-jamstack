@@ -102,7 +102,7 @@ export default function Header() {
             height="18"
             alt="separator"
           />
-          <Link href="/help" target="help">
+          <Link href="/help" target="_blank">
             ?
           </Link>
         </div>

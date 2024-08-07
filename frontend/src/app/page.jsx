@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div id="Content">
       <h2>
-        Welcome to JPetStore Demo Application on MyBatis + Spring Boot + Spring
-        Security + Thymeleaf
+        Welcome to JPetStore Demo Application on Next.js + Spring Boot (Jamstack
+        Architecture)
       </h2>
       <HomeContent href="/catalog">Enter the Store</HomeContent>
       <HomeContent
