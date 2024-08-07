@@ -46,7 +46,11 @@ export default function EachItem({ itemObj, productObj, inventoryQty }) {
           </tr>
           <tr>
             <td>
-              {inventoryQty > 0 ? `${inventoryQty} in stock.` : "out of stock"}
+              {inventoryQty > 0 ? (
+                <span>${inventoryQty} in stock.</span>
+              ) : (
+                <span style={{ color: "red" }}>out of stock</span>
+              )}
             </td>
           </tr>
           <tr>
