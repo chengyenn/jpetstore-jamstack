@@ -13,8 +13,8 @@ export default function Cart() {
 
   useEffect(() => {
     // cartList is a array
-    if (localStorage.getItem("cart")) {
-      const cart = JSON.parse(localStorage.getItem("cart"));
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length > 0) {
       console.log("cart:", cart);
       setCartList(cart);
       setIsCart(true);
@@ -32,7 +32,6 @@ export default function Cart() {
       (item) => item.itemid !== thisItem.itemid
     );
     setCartList(updateCartList);
-
     // local storage delete remove item
     localStorage.setItem("cart", JSON.stringify(updateCartList));
     if (updateCartList.length === 0) setIsCart(false);

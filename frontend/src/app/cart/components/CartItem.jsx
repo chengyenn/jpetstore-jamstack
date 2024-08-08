@@ -5,12 +5,12 @@ export default function CartItem({ itemObj, onRemoveItem, onSubTotal }) {
   const [quantity, setQuantity] = useState(itemObj.quantity);
 
   useEffect(() => {
-    onSubTotal(quantity, itemObj.itemid);
-  }, [quantity]);
-
-  useEffect(() => {
     setQuantity(itemObj.quantity);
   }, [itemObj.quantity]);
+
+  useEffect(() => {
+    onSubTotal(quantity, itemObj.itemid);
+  }, [quantity]);
 
   return (
     <tr>

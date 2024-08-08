@@ -81,33 +81,37 @@ export default function OrderBasicForm() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log("Order Info:", orderInfo);
-    console.log("Cart List", JSON.parse(localStorage.getItem("cart")));
-    const confirm = window.confirm(
-      `It's your shipping information: \n First Name: ${orderInfo.shipToFirstName} \n Last Name: ${orderInfo.shipToLastName} \n Address1: ${orderInfo.shipAddress1} \n Address2: ${orderInfo.shipAddress2} \n City: ${orderInfo.shipCity} \n State: ${orderInfo.shipState} \n Zip: ${orderInfo.shipZip} \n Country: ${orderInfo.shipCountry}`
-    );
-    if (confirm) {
-      // 打 create order 的 api
-      const thisUser = localStorage.getItem("username");
-      const thisOrder = JSON.parse(localStorage.getItem("cart")).map(
-        (item) => ({
-          itemId: item.itemid,
-          qty: item.quantity,
-        })
+    if (orderInfo.expiryDate.match(/^(0[1-9]|1[0-2])\/\d{4}$/)) {
+      console.log("Cart List", JSON.parse(localStorage.getItem("cart")));
+      const confirm = window.confirm(
+        `It's your shipping information: \n First Name: ${orderInfo.shipToFirstName} \n Last Name: ${orderInfo.shipToLastName} \n Address1: ${orderInfo.shipAddress1} \n Address2: ${orderInfo.shipAddress2} \n City: ${orderInfo.shipCity} \n State: ${orderInfo.shipState} \n Zip: ${orderInfo.shipZip} \n Country: ${orderInfo.shipCountry}`
       );
-      const orderReq = {
-        username: thisUser,
-        items: thisOrder,
-        inStock: true,
-        ...orderInfo,
-      };
+      if (confirm) {
+        // 打 create order 的 api
+        const thisUser = localStorage.getItem("username");
+        const thisOrder = JSON.parse(localStorage.getItem("cart")).map(
+          (item) => ({
+            itemId: item.itemid,
+            qty: item.quantity,
+          })
+        );
+        const orderReq = {
+          username: thisUser,
+          items: thisOrder,
+          inStock: true,
+          ...orderInfo,
+        };
 
-      createOrder(orderReq)
-        .then(() => {
-          localStorage.setItem("cart", JSON.stringify([]));
-          alert("Order created successfully!");
-          // location.href = "";
-        })
-        .catch((error) => alert("Order created failed!"));
+        createOrder(orderReq)
+          .then(() => {
+            localStorage.setItem("cart", JSON.stringify([]));
+            alert("Order created successfully!");
+            // location.href = "";
+          })
+          .catch((error) => alert("Order created failed!"));
+      }
+    } else {
+      alert("Expiry Date format is invalid. Please enter MM/YYYY.");
     }
   }
 
