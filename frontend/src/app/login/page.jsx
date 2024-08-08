@@ -38,10 +38,7 @@ export default function Login() {
       .then((result) => {
         localStorage.setItem("token", result.token);
         localStorage.setItem("username", result.username);
-        alert("Login successful");
-        setTimeout(() => {
-          location.href = "/catalog";
-        }, 1000);
+        location.href = "/catalog";
       })
       .catch((error) => {
         alert(`Login failed: ${error}`);

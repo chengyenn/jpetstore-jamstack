@@ -32,10 +32,7 @@ export default function Header() {
       .then(() => {
         localStorage.clear();
         setIsLogined(false);
-        alert("Sign Out successful");
-        setTimeout(() => {
-          location.href = "/catalog";
-        }, 1000);
+        location.href = "/catalog";
       })
       .catch((error) => {
         alert(`Sign Out failed: ${error}`);
