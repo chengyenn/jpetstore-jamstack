@@ -3,11 +3,14 @@ import Link from "next/link";
 
 export default function CartItem({ itemObj, onRemoveItem, onSubTotal }) {
   const [quantity, setQuantity] = useState(itemObj.quantity);
-  let totalCost = itemObj.listprice * quantity;
 
   useEffect(() => {
-    onSubTotal(quantity, totalCost, itemObj.itemid);
+    onSubTotal(quantity, itemObj.itemid);
   }, [quantity]);
+
+  useEffect(() => {
+    setQuantity(itemObj.quantity);
+  }, [itemObj.quantity]);
 
   return (
     <tr>
@@ -38,7 +41,7 @@ export default function CartItem({ itemObj, onRemoveItem, onSubTotal }) {
         <span>{`$${itemObj.listprice.toFixed(2)}`}</span>
       </td>
       <td>
-        <span>{`$${totalCost.toFixed(2)}`}</span>
+        <span>{`$${(itemObj.listprice * quantity).toFixed(2)}`}</span>
       </td>
       <td>
         <Link

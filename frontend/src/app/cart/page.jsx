@@ -10,7 +10,6 @@ export default function Cart() {
   const [isCart, setIsCart] = useState(false);
   const [cartList, setCartList] = useState([]);
   const [subTotal, setSubTotal] = useState(0);
-  const [eachTotalCost, setEachTotalCost] = useState([]);
 
   useEffect(() => {
     // cartList is a array
@@ -20,15 +19,10 @@ export default function Cart() {
       setCartList(cart);
       setIsCart(true);
 
-      // initial total cost for each item in cart
-      const initialTotalCosts = cart.map((item) => ({
-        itemTotalCost: item.listprice,
-        id: item.itemid,
-      }));
-      setEachTotalCost(initialTotalCosts);
-
       // initial sub total
-      setSubTotal(cart.reduce((acc, item) => acc + item.listprice, 0));
+      setSubTotal(
+        cart.reduce((acc, item) => acc + item.listprice * item.quantity, 0)
+      );
     }
   }, []);
 
@@ -41,36 +35,26 @@ export default function Cart() {
 
     // local storage delete remove item
     localStorage.setItem("cart", JSON.stringify(updateCartList));
-    updateCartList.length === 0 && setIsCart(false);
+    if (updateCartList.length === 0) setIsCart(false);
 
-    // delete remove item in eachTotalCost
-    const updatEachTotalCost = eachTotalCost.filter(
-      (item) => item.id !== thisItem.itemid
-    );
-    updateTotalArrandCost(updatEachTotalCost);
+    updateTotalArrandCost(updateCartList);
   }
 
-  function handleSubTotal(thisQuantity, thisTotalCost, thisid) {
+  function handleSubTotal(thisQuantity, thisid) {
     // update quantity in cart
     const updateCarList = cartList.map((item) =>
       item.itemid === thisid ? { ...item, quantity: thisQuantity } : item
     );
     setCartList(updateCarList);
     localStorage.setItem("cart", JSON.stringify(updateCarList));
-    console.log("update quantity CarList:", updateCarList);
 
-    // update total cost of quantityChanged item in eachTotalCost
-    const updatEachTotalCost = eachTotalCost.map((item) =>
-      item.id === thisid ? { ...item, itemTotalCost: thisTotalCost } : item
-    );
-    updateTotalArrandCost(updatEachTotalCost);
+    updateTotalArrandCost(updateCarList);
   }
 
-  // update eachTotalCost and subTotal
-  function updateTotalArrandCost(updatEachTotalCost) {
-    setEachTotalCost(updatEachTotalCost);
-    const updatSubTotal = updatEachTotalCost.reduce(
-      (acc, item) => acc + item.itemTotalCost,
+  // update subTotal
+  function updateTotalArrandCost(updateCartList) {
+    const updatSubTotal = updateCartList.reduce(
+      (acc, item) => acc + item.listprice * item.quantity,
       0
     );
     setSubTotal(updatSubTotal);
