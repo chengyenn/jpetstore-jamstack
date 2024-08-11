@@ -103,10 +103,9 @@ export default function OrderBasicForm() {
         };
 
         createOrder(orderReq)
-          .then(() => {
+          .then((result) => {
             localStorage.setItem("cart", JSON.stringify([]));
-            alert("Order created successfully!");
-            // location.href = "";
+            location.href = `/order/orderInfo/${result.orderId}`;
           })
           .catch((error) => alert("Order created failed!"));
       }
