@@ -19,6 +19,7 @@ import com.kazuki43zoo.jpetstore.component.message.Messages;
 import com.kazuki43zoo.jpetstore.domain.Account;
 import com.kazuki43zoo.jpetstore.domain.Item;
 import com.kazuki43zoo.jpetstore.domain.Order;
+import com.kazuki43zoo.jpetstore.domain.OrderLine;
 import com.kazuki43zoo.jpetstore.dto.ItemRequest;
 import com.kazuki43zoo.jpetstore.dto.OrderRequest;
 import com.kazuki43zoo.jpetstore.service.AccountService;
@@ -156,7 +157,10 @@ public class MyOrderController {
     order.setCardType(orderRequest.getCardType());
 
     // 設置訂單行
-    order.setLines(cart.getCartItems().stream().map(CartItem::toOrderLine).collect(Collectors.toList()));
+    for (CartItem cartItem : cart.getCartItems()) {
+      OrderLine orderLine = cartItem.toOrderLine();
+      order.addLine(orderLine); // 這裡會自動設定 lineNumber
+    }
 
     // 使用 Cart 的 getSubTotal 方法計算總價並設置
     order.setTotalPrice(cart.getSubTotal());
