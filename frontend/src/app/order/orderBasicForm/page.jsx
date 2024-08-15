@@ -3,6 +3,7 @@ import Header from "@/app/components/Header";
 import Content from "@/app/components/Content";
 import Footer from "@/app/components/Footer";
 import { useEffect, useState } from "react";
+import { exportDbtoPublic } from "@/app/function/exportDbtoPublic";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 const initialOrderInfo = {
@@ -105,6 +106,9 @@ export default function OrderBasicForm() {
         createOrder(orderReq)
           .then((result) => {
             localStorage.setItem("cart", JSON.stringify([]));
+            exportDbtoPublic()
+              .then((msg) => console.log(msg))
+              .catch((error) => console.error(error));
             location.href = `/order/orderInfo/${result.orderId}`;
           })
           .catch((error) => alert("Order created failed!"));

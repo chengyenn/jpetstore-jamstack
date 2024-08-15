@@ -8,7 +8,7 @@ export const options = {
 
 export default function () {
   // home page
-  let res = http.get("http://localhost:3000/catalog");
+  let res = http.get("http://localhost:3000");
   check(res, { "status was 200": (r) => r.status === 200 });
   sleep(1);
 }

@@ -4,6 +4,7 @@ import Content from "@/app/components/Content";
 import Footer from "@/app/components/Footer";
 import category from "/public/category.json";
 import UserInfoTable from "@/app/accounts/components/UserInfoTable";
+import { exportDbtoPublic } from "@/app/function/exportDbtoPublic";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
@@ -53,6 +54,9 @@ export default function CreateUserInfo() {
     signup(data)
       .then(() => {
         alert("Account created successfully.");
+        exportDbtoPublic()
+          .then((msg) => console.log(msg))
+          .catch((error) => console.error(error));
         setTimeout(() => {
           location.href = "/login";
         }, 1000);
