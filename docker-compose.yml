@@ -1,0 +1,33 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: jamstack_backend_container
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./backend/src/main/resources/env.properties
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_DOMAIN: http://localhost:8080
+    container_name: jamstack_frontend_container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  db:
+    image: mysql:latest
+    container_name: jamstack_db_container
+    environment:
+      MYSQL_ROOT_PASSWORD: springboot
+      MYSQL_DATABASE: jptest
+    ports:
+      - "3307:3306"
