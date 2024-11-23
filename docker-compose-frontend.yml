@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_DOMAIN: ${NEXT_PUBLIC_API_DOMAIN}
+    container_name: jamstack_frontend_container
+    ports:
+      - "3000:3000"
