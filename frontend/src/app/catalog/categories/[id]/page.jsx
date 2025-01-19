@@ -9,7 +9,7 @@ import productData from "/public/product.json";
 
 export function generateStaticParams() {
   return categories.map((category) => {
-    id: category.catid;
+    id: category.catid.toString();
   });
 }
 
@@ -17,7 +17,7 @@ export default function Category({ params }) {
   if (!params.id) return <></>;
 
   const eachProductData = productData.filter(
-    (product) => product.category === params.id
+    (product) => product.category === params.id.toString()
   );
 
   return (
