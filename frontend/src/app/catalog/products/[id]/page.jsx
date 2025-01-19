@@ -9,9 +9,9 @@ import itemData from "/public/item.json";
 import inventoryData from "/public/inventory.json";
 
 export function generateStaticParams() {
-  return productData.map((product) => {
-    id: product.productid;
-  });
+  return productData.map((product) => ({
+    id: product.productid,
+  }));
 }
 
 export default function Product({ params }) {

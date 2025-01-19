@@ -8,16 +8,16 @@ import categories from "/public/category.json";
 import productData from "/public/product.json";
 
 export function generateStaticParams() {
-  return categories.map((category) => {
-    id: category.catid.toString();
-  });
+  return categories.map((category) => ({
+    id: category.catid.toString(),
+  }));
 }
 
 export default function Category({ params }) {
   if (!params.id) return <></>;
 
   const eachProductData = productData.filter(
-    (product) => product.category === params.id.toString()
+    (product) => product.category === params.id
   );
 
   return (
