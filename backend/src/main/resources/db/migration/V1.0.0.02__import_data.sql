@@ -1,5 +1,5 @@
 --
---    Copyright 2016-2024 the original author or authors.
+--    Copyright 2016-2025 the original author or authors.
 --
 --    Licensed under the Apache License, Version 2.0 (the "License");
 --    you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 
 INSERT INTO sequence VALUES('ordernum', 1000);
 
--- hashing by PBKDF2 algorithm
 INSERT INTO signon VALUES('j2ee','887a7e959ebc2cfb18609aec04693017524d77604fe23d0e8529b0b2c275a26d23b2bed5d0484142');
 INSERT INTO signon VALUES('ACID','1142c6d0d06ed8cadad4c823de17cc1ac717535c4b3908bc502cd7c1d09ae5e0776b0ee867f813e3');
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2016-2024 the original author or authors.
+       Copyright 2016-2025 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -21,9 +21,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.kazuki43zoo.examples</groupId>
-	<artifactId>mybatis-spring-boot-jpetstore</artifactId>
+	<artifactId>jpetstore-jamstack</artifactId>
+<!--	<artifactId>mybatis-spring-boot-jpetstore</artifactId>-->
 	<version>2.0.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
+<!--	<packaging>jar</packaging>-->
 
 	<name>jpetstore on spring-boot + mybatis + thymeleaf</name>
 	<description>A sample web application built on MyBatis 3, Spring Boot and Thymeleaf 3</description>
@@ -173,9 +175,16 @@
 			<version>8.0.22</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
