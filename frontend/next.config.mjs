@@ -11,10 +11,6 @@ const nextConfig = {
   output: "standalone", // 讓 Next.js 可獨立運行（適用於 VM 部署）
 
   trailingSlash: true, // 確保所有靜態頁面 URL 以 `/` 結尾，避免路徑問題
-
-  experimental: {
-    appDir: false, // 用的是 App Router，可能需要設為 false 來避免潛在錯誤
-  },
 };
 
 export default nextConfig;
