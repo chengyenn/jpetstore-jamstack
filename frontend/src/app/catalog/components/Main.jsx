@@ -1,6 +1,7 @@
 import SideBarList from "@/app/catalog/components/SideBarList";
 import categories from "/public/catalogData.json";
-import Image from "next/image";
+// import Image from "next/image";
+import CustomImage from "@/app/components/CustomImage";
 
 export default function Main() {
   return (
@@ -17,7 +18,7 @@ export default function Main() {
       {/* MainImage */}
       <div id="MainImage">
         <div id="MainImageContent">
-          <Image
+          <CustomImage
             height="355"
             width="350"
             src="/images/splash.gif"

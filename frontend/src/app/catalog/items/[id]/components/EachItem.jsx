@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
+import CustomImage from "@/app/components/CustomImage";
 import addItemtoCart from "@/app/catalog/function/addItemtoCart";
 
 export default function EachItem({ itemObj, productObj, inventoryQty }) {
@@ -19,7 +20,12 @@ export default function EachItem({ itemObj, productObj, inventoryQty }) {
         <thead>
           <tr>
             <td>
-              <Image src={imageUrl} alt="itemImg" width="125" height="125" />
+              <CustomImage
+                src={imageUrl}
+                alt="itemImg"
+                width="125"
+                height="125"
+              />
               <span>{description}</span>
             </td>
           </tr>

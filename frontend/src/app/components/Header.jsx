@@ -2,7 +2,8 @@
 import QuickLinkList from "@/app/components/QuickLinkList";
 import Link from "next/link";
 import categories from "/public/navData.json";
-import Image from "next/image";
+// import Image from "next/image";
+import CustomImage from "@/app/components/CustomImage";
 import useLoginCheck from "@/hooks/useLoginCheck";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
@@ -44,7 +45,7 @@ export default function Header() {
       <div id="Logo">
         <div id="LogoContent">
           <Link href="/catalog">
-            <Image
+            <CustomImage
               src="/images/logo-topbar.gif"
               alt="logo"
               loading="lazy"
@@ -58,7 +59,7 @@ export default function Header() {
       <div id="Menu">
         <div id="MenuContent">
           <Link href="/cart">
-            <Image
+            <CustomImage
               src="/images/cart.gif"
               alt="img_car"
               loading="lazy"
@@ -67,7 +68,7 @@ export default function Header() {
               height="18"
             />
           </Link>
-          <Image
+          <CustomImage
             src="/images/separator.gif"
             align="middle"
             width="1"
@@ -79,7 +80,7 @@ export default function Header() {
               <Link onClick={handleSignOut} href="/catalog">
                 Sign Out
               </Link>
-              <Image
+              <CustomImage
                 src="/images/separator.gif"
                 align="middle"
                 width="1"
@@ -92,7 +93,7 @@ export default function Header() {
             <Link href="/login">Sign In</Link>
           )}
 
-          <Image
+          <CustomImage
             src="/images/separator.gif"
             align="middle"
             width="1"
@@ -118,7 +119,7 @@ export default function Header() {
         {categories.map((product, index) => (
           <QuickLinkList categotyObj={product} key={product.name}>
             {index !== categories.length - 1 && (
-              <Image
+              <CustomImage
                 src="/images/separator.gif"
                 width="1"
                 height="18"
