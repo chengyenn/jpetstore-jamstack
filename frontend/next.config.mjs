@@ -7,6 +7,8 @@ const nextConfig = {
   },
 
   output: "standalone", // 讓 Next.js 可獨立運行（適用於 VM 部署）
+  basePath: "/jpetstore-jamstack", // 不要加 `/`
+  trailingSlash: false, // 禁止自動補 `/`
 };
 
 export default nextConfig;
