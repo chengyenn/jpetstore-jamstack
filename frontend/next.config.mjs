@@ -9,8 +9,6 @@ const nextConfig = {
   },
 
   output: "standalone", // 讓 Next.js 可獨立運行（適用於 VM 部署）
-
-  trailingSlash: true, // 確保所有靜態頁面 URL 以 `/` 結尾，避免路徑問題
 };
 
 export default nextConfig;
