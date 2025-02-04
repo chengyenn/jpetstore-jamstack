@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/jpetstore-jamstack", // 設定 Base Path，確保靜態資源路徑正確
-
   images: {
     loader: "custom",
     path: "https://140.119.163.226/cdn/", // 讓 Next.js 透過 Local CDN 加載圖片
