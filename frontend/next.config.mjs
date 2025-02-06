@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath: "/jpetstore-jamstack",
+  assetPrefix: "/jpetstore-jamstack",
   output: "standalone",
   experimental: {
     outputFileTracingRoot: undefined,

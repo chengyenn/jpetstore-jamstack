@@ -5,7 +5,6 @@ import categories from "/public/navData.json";
 // import Image from "next/image";
 import CustomImage from "@/app/components/CustomImage";
 import useLoginCheck from "@/hooks/useLoginCheck";
-import { useRouter } from "next/navigation";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
@@ -26,7 +25,6 @@ async function signOutCheck() {
 
 export default function Header() {
   const [isLogined, setIsLogined] = useLoginCheck();
-  const router = useRouter();
 
   function handleSignOut(event) {
     event.preventDefault();
@@ -35,7 +33,7 @@ export default function Header() {
       .then(() => {
         localStorage.clear();
         setIsLogined(false);
-        router.push("/catalog");
+        location.href = "/catalog";
       })
       .catch((error) => {
         alert(`Sign Out failed: ${error}`);

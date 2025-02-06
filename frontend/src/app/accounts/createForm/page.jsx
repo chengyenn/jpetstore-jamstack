@@ -5,7 +5,6 @@ import Footer from "@/app/components/Footer";
 import category from "/public/category.json";
 import UserInfoTable from "@/app/accounts/components/UserInfoTable";
 import { exportDbtoPublic } from "@/app/function/exportDbtoPublic";
-import { useRouter } from "next/navigation";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
@@ -39,8 +38,6 @@ async function signup(signupData) {
 }
 
 export default function CreateUserInfo() {
-  const router = useRouter();
-
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -61,7 +58,7 @@ export default function CreateUserInfo() {
           .then((msg) => console.log(msg))
           .catch((error) => console.error(error));
         setTimeout(() => {
-          router.push("/login");
+          location.href = "/login";
         }, 1000);
       })
       .catch((error) => {
