@@ -3,6 +3,7 @@ import Header from "@/app/components/Header";
 import Content from "@/app/components/Content";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
@@ -27,6 +28,8 @@ async function loginCheck(data) {
 }
 
 export default function Login() {
+  const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -38,7 +41,7 @@ export default function Login() {
       .then((result) => {
         localStorage.setItem("token", result.token);
         localStorage.setItem("username", result.username);
-        location.href = "/catalog";
+        router.push("/catalog");
       })
       .catch((error) => {
         alert(`Login failed: ${error}`);

@@ -4,6 +4,7 @@ import Content from "@/app/components/Content";
 import Footer from "@/app/components/Footer";
 import { useEffect, useState } from "react";
 import { exportDbtoPublic } from "@/app/function/exportDbtoPublic";
+import { useRouter } from "next/navigation";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 const initialOrderInfo = {
@@ -43,6 +44,7 @@ async function createOrder(orderReq) {
 
 export default function OrderBasicForm() {
   const [orderInfo, setOrderInfo] = useState(initialOrderInfo);
+  const router = useRouter();
 
   useEffect(() => {
     async function fetchBillInfo() {
@@ -109,7 +111,7 @@ export default function OrderBasicForm() {
             exportDbtoPublic()
               .then((msg) => console.log(msg))
               .catch((error) => console.error(error));
-            location.href = `/order/orderInfo/${result.orderId}`;
+            router.push("/order/orderInfo/${result.orderId}");
           })
           .catch((error) => alert("Order created failed!"));
       }

@@ -5,11 +5,13 @@ import Footer from "@/app/components/Footer";
 import CartItem from "@/app/cart/components/CartItem";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Cart() {
   const [isCart, setIsCart] = useState(false);
   const [cartList, setCartList] = useState([]);
   const [subTotal, setSubTotal] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     // cartList is a array
@@ -65,13 +67,13 @@ export default function Cart() {
     if (!localStorage.getItem("username")) {
       alert("Please login first.");
       setTimeout(() => {
-        location.href = "/login";
+        router.push("/login");
       }, 1000);
     } else {
       // update last cartList to local storage
       if (cartList.length !== 0) {
         localStorage.setItem("cart", JSON.stringify(cartList));
-        window.location.href = "/order/orderBasicForm";
+        router.push("/order/orderBasicForm");
       } else {
         alert("Your cart is empty.");
       }
